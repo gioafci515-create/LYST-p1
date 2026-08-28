@@ -36,21 +36,20 @@ const greenify = 'saturate(0.7) hue-rotate(24deg) brightness(0.85)';
 
 const pieces: Record<Variant, Piece[]> = {
   intro: [
-    {
-      src: 'assets/flowers.png',
-      style: { top: '2%', left: '4%', width: 'clamp(170px, 46vw, 300px)', transform: 'rotate(-9deg)', opacity: 0.7, filter: soften },
-    },
+    /* the floral-frame.png card already carries its own flower crown at
+       top-left — every added piece here sits on the RIGHT so the two
+       don't stack into one lopsided mass. */
     {
       src: 'assets/butterfly.svg',
-      style: { top: '14%', right: '9%', width: 'clamp(56px, 14vw, 86px)', transform: 'rotate(12deg)', opacity: 0.65 },
+      style: { top: '13%', right: '8%', width: 'clamp(58px, 15vw, 90px)', transform: 'rotate(12deg)', opacity: 0.65 },
     },
     {
       src: 'assets/white-lily.png',
-      style: { top: '42%', right: '3%', width: 'clamp(78px, 20vw, 130px)', transform: 'rotate(14deg)', opacity: 0.6, filter: soften },
+      style: { top: '38%', right: '1%', width: 'clamp(90px, 23vw, 148px)', transform: 'rotate(14deg)', opacity: 0.62, filter: soften },
     },
     {
       src: 'assets/floral-cascade.png',
-      style: { bottom: '3%', left: '2%', width: 'clamp(110px, 28vw, 190px)', transform: 'rotate(8deg)', opacity: 0.55, filter: greenify },
+      style: { bottom: '4%', right: '3%', width: 'clamp(120px, 30vw, 200px)', transform: 'scaleX(-1) rotate(-8deg)', opacity: 0.58, filter: greenify },
     },
   ],
   'photo-1': [

@@ -1,0 +1,16 @@
+.photo-section {
+  padding: clamp(3.5rem, 10vw, 6rem) 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.photo-section .section__inner {
+  display: flex;
+  justify-content: center;
+}
+
+.photo-section__polaroid {
+  width: min(82vw, 420px);
+  height: auto;
+  will-change: transform;
+}

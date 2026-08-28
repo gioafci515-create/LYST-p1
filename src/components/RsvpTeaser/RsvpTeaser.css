@@ -1,0 +1,57 @@
+.rsvp-teaser {
+  text-align: center;
+}
+
+.rsvp-teaser__paper {
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto;
+  transform: rotate(0.5deg); /* counter-tilt against the details paper */
+}
+
+.rsvp-teaser__paper > img {
+  width: 100%;
+  height: auto;
+}
+
+.rsvp-teaser__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.4rem;
+  /* the floral crown owns the top ~30% of the frame — text starts under it */
+  padding: 34% 17% 14%;
+  color: var(--paper-ink);
+}
+
+.rsvp-teaser__content .paper-cta {
+  margin-top: auto; /* CTA settles toward the frame's lower arc */
+}
+
+.rsvp-teaser__title {
+  color: var(--paper-ink);
+  font-size: clamp(1.05rem, 4.6vw, 1.55rem);
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+}
+
+.rsvp-teaser__prompt {
+  font-size: clamp(0.72rem, 3vw, 0.9rem);
+  line-height: 1.55;
+  color: rgba(26, 31, 20, 0.75);
+  max-width: 20rem;
+}
+
+.rsvp-teaser__deadline {
+  font-size: clamp(0.68rem, 2.6vw, 0.78rem);
+  letter-spacing: 0.12em;
+  color: rgba(26, 31, 20, 0.6);
+  margin-bottom: 0.5rem;
+}
+
+.rsvp-teaser .paper-cta {
+  font-size: clamp(0.72rem, 3vw, 0.82rem);
+}

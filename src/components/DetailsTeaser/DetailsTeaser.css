@@ -1,0 +1,49 @@
+.details-teaser {
+  text-align: center;
+}
+
+.details-teaser__paper {
+  position: relative;
+  max-width: 440px;
+  margin: 0 auto;
+  transform: rotate(-0.6deg);
+}
+
+.details-teaser__paper > img {
+  width: 100%;
+  height: auto;
+}
+
+.details-teaser__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--paper-ink);
+}
+
+.details-teaser__title {
+  color: var(--paper-ink);
+  margin-top: 18%;
+  padding-inline: 18%;
+  font-size: clamp(1.3rem, 5vw, 1.9rem);
+}
+
+/* quiet underlined ink link, sitting under the baked dove illustration */
+.paper-cta {
+  margin-top: auto;
+  margin-bottom: 22%;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  color: var(--paper-ink);
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+}
+
+.paper-cta:hover {
+  opacity: 0.7;
+}

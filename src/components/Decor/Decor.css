@@ -1,0 +1,17 @@
+.decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.decor__piece {
+  position: absolute;
+}
+
+@media (max-width: 767px) {
+  .decor__piece--desktop {
+    display: none;
+  }
+}

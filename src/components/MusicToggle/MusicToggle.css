@@ -1,0 +1,46 @@
+.music-toggle {
+  position: fixed;
+  right: 1rem;
+  bottom: calc(1rem + env(safe-area-inset-bottom));
+  z-index: 60;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  overflow: hidden;
+  animation: music-toggle-in 500ms ease both;
+}
+
+@keyframes music-toggle-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.music-toggle__vinyl {
+  width: 100%;
+  height: 100%;
+  /* the disc art is landscape with transparent margins — cover crops it
+     to the circular disc */
+  object-fit: cover;
+}
+
+.music-toggle__vinyl.is-spinning {
+  animation: spin 4s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-toggle__vinyl.is-spinning {
+    animation: none;
+  }
+}

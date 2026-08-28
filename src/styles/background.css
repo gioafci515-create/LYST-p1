@@ -1,0 +1,58 @@
+/* Single fixed ground: lighter at the top, sinking to near-black. Sections
+   stay transparent so the gradient never breaks into bands. */
+.bg-gradient {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 80% at 50% -10%, #1F2A17 0%, transparent 60%),
+    linear-gradient(
+      to bottom,
+      #1A2314 0%,
+      #131B0F 22%,
+      #0C120A 55%,
+      #070A05 82%,
+      #040603 100%
+    );
+}
+
+/* static film grain, two layers: fine + coarse — never animated */
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  /* no blend mode: plain alpha compositing is dramatically cheaper to
+     paint than overlay on a throttled phone, and on this near-black
+     ground the difference is invisible */
+  opacity: 0.075;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+}
+
+.bg-noise--coarse {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.35' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 520px 520px;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .bg-noise,
+  .bg-noise--coarse {
+    display: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .bg-noise,
+  .bg-noise--coarse,
+  .bg-gradient {
+    display: none;
+  }
+}

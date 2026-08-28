@@ -1,0 +1,63 @@
+import './WaxSeal.css';
+
+interface WaxSealProps {
+  size?: number;
+  glow?: boolean;
+}
+
+/**
+ * Cream wax seal in --bone with --bone-shadow relief and an embossed olive
+ * sprig. Recurs on the envelope, the RSVP submit, and the countdown.
+ */
+export function WaxSeal({ size = 64, glow = true }: WaxSealProps) {
+  return (
+    <span
+      className={`wax-seal${glow ? ' wax-seal--glow' : ''}`}
+      style={{ width: size, height: size }}
+      aria-hidden="true"
+    >
+      <svg viewBox="0 0 64 64" width={size} height={size}>
+        <SealArt />
+      </svg>
+    </span>
+  );
+}
+
+/**
+ * Bare seal drawing, shared with the envelope's crack-in-half animation.
+ * Callers provide the outer <svg viewBox="0 0 64 64">.
+ */
+export function SealArt() {
+  return (
+    <>
+      <defs>
+        <radialGradient id="sealBone" cx="40%" cy="34%" r="78%">
+          <stop offset="0%" stopColor="#F2EDE2" />
+          <stop offset="62%" stopColor="#E4DCC9" />
+          <stop offset="100%" stopColor="#C9C0A8" />
+        </radialGradient>
+      </defs>
+      {/* irregular hand-pressed wax blob */}
+      <path
+        d="M32 2c6-1 11 2 15 5s10 4 12 10-1 10 1 15-2 11-6 15-4 9-10 11-9-2-14-1-9 3-14-1-5-8-9-12S2 36 3 30s5-8 7-13 3-9 9-12S26 3 32 2Z"
+        fill="url(#sealBone)"
+      />
+      {/* pressed rim relief */}
+      <circle cx="32" cy="32" r="22" fill="none" stroke="#C9C0A8" strokeWidth="1.5" strokeOpacity="0.8" />
+      <circle cx="32" cy="32" r="19.5" fill="none" stroke="#F2EDE2" strokeWidth="0.75" strokeOpacity="0.9" />
+      {/* embossed olive sprig */}
+      <g stroke="#C9C0A8" strokeWidth="1.4" fill="none" strokeLinecap="round">
+        <path d="M32 43 C31.4 38 31.6 31 32.6 22" />
+        <path d="M32.2 38.5 C29 37.5 26.6 35.4 26 32.4" />
+        <path d="M32 33.5 C35.2 32.7 37.4 30.7 38.2 27.6" />
+        <path d="M32.4 28.5 C29.6 27.7 27.7 25.9 27.2 23.2" />
+      </g>
+      <g fill="#C9C0A8">
+        <ellipse cx="25.4" cy="31.4" rx="1.7" ry="3" transform="rotate(-38 25.4 31.4)" />
+        <ellipse cx="38.9" cy="26.6" rx="1.7" ry="3" transform="rotate(35 38.9 26.6)" />
+        <ellipse cx="26.7" cy="22.3" rx="1.6" ry="2.7" transform="rotate(-30 26.7 22.3)" />
+        <ellipse cx="33" cy="19.4" rx="1.6" ry="2.7" transform="rotate(8 33 19.4)" />
+      </g>
+    </>
+  );
+}

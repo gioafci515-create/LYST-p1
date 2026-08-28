@@ -1,0 +1,249 @@
+.gate {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  min-height: 100svh;
+  /* the painted olive landscape, dimmed for legibility; solid color
+     underneath while the JPEG loads */
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5, 7, 4, 0.5) 0%,
+      rgba(5, 7, 4, 0.58) 55%,
+      rgba(4, 6, 3, 0.8) 100%
+    ),
+    url('/assets/mainback.jpg') center / cover no-repeat,
+    linear-gradient(#0b120a, #040603);
+  padding: 1.5rem;
+  transition:
+    opacity 700ms ease 1000ms,
+    transform 700ms ease 1000ms;
+}
+
+.gate--opening {
+  opacity: 0;
+  transform: scale(1.06);
+  pointer-events: none;
+}
+
+.gate__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  color: var(--lace);
+  text-shadow: 0 1px 10px rgba(4, 6, 3, 0.9);
+}
+
+.gate__logo-divider {
+  width: 1px;
+  height: 1.8rem;
+  background: rgba(242, 237, 226, 0.5);
+  transform: rotate(18deg);
+}
+
+.gate__envelope-container {
+  position: relative;
+  perspective: 1200px;
+}
+
+/* light pooling around the envelope, falling off into the painting */
+.gate__envelope-container::before {
+  content: '';
+  position: absolute;
+  inset: -34%;
+  background: radial-gradient(ellipse, rgba(242, 237, 226, 0.26) 0%, transparent 62%);
+  opacity: 0.72;
+  transition: opacity 420ms var(--ease-out);
+  pointer-events: none;
+}
+
+/* grounding shadow pool so the envelope sits with weight */
+.gate__envelope-container::after {
+  content: '';
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -7%;
+  height: 16%;
+  background: radial-gradient(ellipse, rgba(4, 6, 3, 0.6) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+/* ————— hover affordance (pointer devices only) ————— */
+@media (hover: hover) and (pointer: fine) {
+  .envelope-trigger {
+    transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .envelope-trigger:hover {
+    transform: scale(1.045);
+  }
+
+  .envelope-trigger:hover::before {
+    opacity: 1;
+  }
+
+  .envelope-trigger:hover .envelope__seal {
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+}
+
+.envelope-trigger:has(.envelope:focus-visible) {
+  transform: scale(1.045);
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.envelope-trigger:has(.envelope:focus-visible)::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .envelope-trigger:hover,
+  .envelope-trigger:has(.envelope:focus-visible) {
+    transform: scale(1.015);
+  }
+}
+
+.gate__instruction {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--lace);
+  text-align: center;
+  max-width: 18rem;
+  text-shadow: 0 1px 8px rgba(4, 6, 3, 0.9);
+}
+
+.gate__date {
+  color: var(--lace);
+  text-shadow: 0 1px 8px rgba(4, 6, 3, 0.9);
+}
+
+/* ————— the envelope: real photo asset ————— */
+
+.envelope {
+  position: relative;
+  display: block;
+  width: clamp(280px, 86vw, 400px);
+  min-height: 44px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.envelope:hover {
+  transform: none;
+}
+
+.gate--opening .envelope {
+  animation: none;
+}
+
+.envelope__closed {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 22px rgba(4, 6, 3, 0.45));
+  transition: opacity 300ms ease 150ms;
+}
+
+/* open envelope (flowers + D&K) rises out of the same footprint */
+.envelope__opened {
+  position: absolute;
+  bottom: -4%;
+  left: 50%;
+  width: 96%;
+  height: auto;
+  transform: translateX(-50%) translateY(14px) scale(0.98);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 450ms ease 260ms,
+    transform 600ms var(--ease-out) 260ms;
+}
+
+.gate--opening .envelope__closed {
+  opacity: 0;
+}
+
+.gate--opening .envelope__opened {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+/* ————— wax seal on the flap point ————— */
+
+.envelope__seal {
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  width: clamp(58px, 18vw, 74px);
+  height: clamp(58px, 18vw, 74px);
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  transition: transform 200ms ease;
+}
+
+.gate--opening .envelope__seal {
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+.envelope__seal-half {
+  position: absolute;
+  inset: 0;
+  transition:
+    transform 260ms ease 120ms,
+    opacity 260ms ease 140ms;
+}
+
+.envelope__seal-half svg {
+  width: 100%;
+  height: 100%;
+}
+
+.envelope__seal-half--left {
+  clip-path: polygon(0 0, 54% 0, 46% 100%, 0 100%);
+}
+
+.envelope__seal-half--right {
+  clip-path: polygon(54% 0, 100% 0, 100% 100%, 46% 100%);
+}
+
+.gate--opening .envelope__seal-half--left {
+  transform: rotate(-12deg) translate(-14%, 6%);
+  opacity: 0;
+}
+
+.gate--opening .envelope__seal-half--right {
+  transform: rotate(12deg) translate(14%, 6%);
+  opacity: 0;
+}
+
+/* ————— reduced motion: simple cross-fade ————— */
+
+@media (prefers-reduced-motion: reduce) {
+  .gate {
+    transition: opacity 300ms ease 0ms;
+  }
+
+  .gate--opening {
+    transform: none;
+  }
+
+  .envelope {
+    animation: none;
+  }
+
+  .envelope__closed,
+  .envelope__opened,
+  .envelope__seal,
+  .envelope__seal-half {
+    transition: none;
+  }
+}

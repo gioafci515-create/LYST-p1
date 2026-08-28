@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'GL Erekles Stamba';
+  src: url('../fonts/gl-erekles-stamba-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ground — near-black with olive in it, never neutral grey */
+  --void:         #050704;
+  --deep:         #0B120A;
+  --forest:       #141C10;
+  --olive-deep:   #26301C;
+
+  /* olive — the envelope, the primary accent */
+  --olive:        #6B7043;
+  --olive-light:  #878C57;
+  --olive-glow:   rgba(135, 140, 87, 0.22);
+
+  /* botanical line art */
+  --sage:         #A8B08A;
+  --sage-dim:     rgba(168, 176, 138, 0.16);
+
+  /* lace and wax — the warm counterpoint */
+  --lace:         #F2EDE2;
+  --bone:         #E4DCC9;
+  --bone-shadow:  #C9C0A8;
+
+  /* deep warm band, used sparingly */
+  --cocoa:        #2E2A22;
+
+  /* text */
+  --text:         #ECE9DD;
+  --text-muted:   #A9AD93;
+  --paper-ink:    #1A1F14;
+
+  /* derived aliases (sage/olive family only, no new hues) */
+  --line:           rgba(168, 176, 138, 0.25);
+  --surface:        var(--forest);
+  --surface-raised: var(--olive-deep);
+
+  /* type — harvested from the reference site; Geo Tabidze is legacy
+     (no Unicode Georgian) so GL Erekles Stamba carries the names */
+  --font-display: 'Cormorant Garamond', 'Noto Serif Georgian', Georgia, serif;
+  --font-geo-display: 'GL Erekles Stamba', 'Noto Serif Georgian', Georgia, serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-body: 'Manrope', 'FiraGO', 'Noto Sans Georgian', system-ui, sans-serif;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --content-max: 680px;
+}

@@ -1,0 +1,18 @@
+.wax-seal {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* the only glow on the page: soft radial behind the seal, no box-shadow haze */
+.wax-seal--glow::before {
+  content: '';
+  position: absolute;
+  inset: -55%;
+  background: radial-gradient(circle, var(--olive-glow) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.wax-seal svg {
+  position: relative;
+}

@@ -1,0 +1,25 @@
+.footer {
+  padding: clamp(4rem, 12vw, 6rem) 1.5rem calc(3rem + env(safe-area-inset-bottom));
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+
+.footer__love {
+  margin-bottom: 1rem;
+}
+
+.footer__names {
+  margin-bottom: 2.5rem;
+}
+
+.footer__amp {
+  font-style: italic;
+  color: var(--sage);
+}
+
+.footer__credit {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  opacity: 0.7;
+}

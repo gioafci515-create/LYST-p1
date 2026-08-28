@@ -1,0 +1,351 @@
+.admin {
+  min-height: 100svh;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem clamp(1rem, 4vw, 2.5rem) 4rem;
+}
+
+.admin--login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin__note {
+  color: var(--text-muted);
+  max-width: 34rem;
+  text-align: center;
+  line-height: 1.75;
+}
+
+.admin__note code {
+  color: var(--sage);
+  font-size: 0.85em;
+}
+
+.admin__login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  width: min(320px, 90vw);
+}
+
+.admin__label {
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  color: var(--sage);
+}
+
+.admin__login-form input {
+  width: 100%;
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 0.7rem 0.85rem;
+  font-size: 16px;
+}
+
+.admin__login-error {
+  font-size: 0.8rem;
+  color: var(--sage);
+  border-left: 2px solid var(--olive-light);
+  padding-left: 0.6rem;
+}
+
+.admin__button {
+  min-height: 40px;
+  padding: 0.4rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--text);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  background: transparent;
+}
+
+.admin__button:hover {
+  border-color: var(--olive-light);
+}
+
+.admin__button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.admin__button--quiet {
+  border-color: transparent;
+  color: var(--text-muted);
+}
+
+/* header */
+
+.admin__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.admin__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 1.4rem;
+  letter-spacing: 0.14em;
+  color: var(--sage);
+}
+
+.admin__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.admin__updated {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* stats */
+
+.admin__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .admin__stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.admin__card {
+  border: 1px solid var(--line);
+  background: var(--forest);
+  padding: 1.1rem 1.2rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-height: 96px;
+}
+
+.admin__card.is-loading {
+  opacity: 0.45;
+}
+
+.admin__card-value {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  font-variant-numeric: lining-nums tabular-nums;
+  min-height: 2.75rem;
+}
+
+.admin__card-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+html[lang='ka'] .admin__card-label {
+  text-transform: none; /* Georgian has no uppercase */
+}
+
+/* chart */
+
+.admin__section-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  color: var(--sage);
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.admin__chart {
+  margin-bottom: 2.5rem;
+}
+
+.admin__chart-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  background: var(--forest);
+  padding: 0.75rem;
+}
+
+.admin__chart-scroll svg {
+  width: 100%;
+  min-width: 480px;
+  height: auto;
+}
+
+.admin__chart-tick {
+  fill: var(--text-muted);
+  font-size: 10px;
+  font-family: var(--font-body);
+}
+
+.admin__chart-fallback {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 300;
+  border: 1px solid var(--line);
+  background: var(--forest);
+  padding: 1rem 1.25rem;
+}
+
+/* table */
+
+.admin__table-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.admin__search {
+  width: min(280px, 100%);
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 0.55rem 0.8rem;
+  font-size: 16px;
+}
+
+.admin__chips {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.admin__chip {
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.admin__chip.is-active {
+  color: var(--text);
+  border-color: var(--olive-light);
+  background: var(--sage-dim);
+}
+
+.admin__table-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+}
+
+.admin__table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.admin__table th {
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  background: var(--forest);
+  padding: 0;
+}
+
+.admin__th {
+  width: 100%;
+  text-align: left;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--sage);
+  white-space: nowrap;
+}
+
+.admin__th:hover {
+  transform: none;
+}
+
+.admin__table th:last-child {
+  padding: 0.7rem 0.9rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--sage);
+  font-weight: 400;
+}
+
+.admin__table td {
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.admin__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin__cell-yes {
+  color: var(--sage);
+}
+
+.admin__cell-no {
+  color: var(--text-muted);
+}
+
+.admin__cell-num {
+  font-variant-numeric: tabular-nums;
+}
+
+.admin__cell-date {
+  white-space: nowrap;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.admin__cell-message {
+  max-width: 260px;
+}
+
+.admin__clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.admin__expand {
+  font-size: 0.7rem;
+  color: var(--sage);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0;
+}
+
+.admin__empty {
+  border: 1px solid var(--line);
+  background: var(--forest);
+  padding: 2.5rem 1rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.admin__error {
+  border: 1px solid var(--line);
+  background: var(--forest);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.admin__error code {
+  color: var(--text-muted);
+  font-size: 0.8em;
+}

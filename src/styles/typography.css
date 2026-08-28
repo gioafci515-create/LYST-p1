@@ -1,0 +1,54 @@
+.display-names {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 11vw, 4.75rem);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+
+/* Georgian display text uses the harvested reference face */
+html[lang='ka'] .display-names,
+html[lang='ka'] .section-heading {
+  font-family: var(--font-geo-display);
+  font-weight: 400; /* single-weight face */
+}
+
+.script-accent {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-style: normal;
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 6vw, 2.5rem);
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  color: var(--sage);
+}
+
+/* Georgian has no uppercase — apply only to Latin labels via this class */
+.eyebrow--latin {
+  text-transform: uppercase;
+}
+
+.date-line {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+}
+
+.body-copy {
+  font-size: clamp(0.95rem, 3.6vw, 1.05rem);
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text-muted);
+}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="80" viewBox="0 0 96 80">
+  <!-- upper wings -->
+  <path d="M46 40 C34 18 16 8 8 14 C2 19 8 34 22 41 C30 45 40 44 46 40Z" fill="#F2EDE2" opacity="0.82"/>
+  <path d="M50 40 C62 18 80 8 88 14 C94 19 88 34 74 41 C66 45 56 44 50 40Z" fill="#F2EDE2" opacity="0.82"/>
+  <!-- lower wings -->
+  <path d="M46 44 C38 58 26 68 18 64 C12 60 18 48 30 43 C36 41 42 42 46 44Z" fill="#F2EDE2" opacity="0.68"/>
+  <path d="M50 44 C58 58 70 68 78 64 C84 60 78 48 66 43 C60 41 54 42 50 44Z" fill="#F2EDE2" opacity="0.68"/>
+  <!-- veins -->
+  <g fill="none" stroke="#C9C0A8" stroke-width="0.7" opacity="0.75">
+    <path d="M46 40 C36 28 24 18 12 15"/>
+    <path d="M46 41 C36 34 26 30 16 30"/>
+    <path d="M50 40 C60 28 72 18 84 15"/>
+    <path d="M50 41 C60 34 70 30 80 30"/>
+    <path d="M46 44 C40 52 32 60 22 62"/>
+    <path d="M50 44 C56 52 64 60 74 62"/>
+  </g>
+  <!-- body -->
+  <ellipse cx="48" cy="42" rx="2.4" ry="10" fill="#E4DCC9"/>
+  <circle cx="48" cy="30" r="2.6" fill="#E4DCC9"/>
+  <path d="M46.5 28 C44 24 42 22 39 21 M49.5 28 C52 24 54 22 57 21" fill="none" stroke="#C9C0A8" stroke-width="0.8" stroke-linecap="round"/>
+</svg>

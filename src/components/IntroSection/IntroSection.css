@@ -1,0 +1,39 @@
+.intro {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.intro__eyebrow {
+  margin-bottom: 1rem;
+}
+
+.intro__title {
+  color: var(--text);
+  margin-bottom: 1.75rem;
+}
+
+.intro__names {
+  margin-bottom: 1.5rem;
+}
+
+.intro__amp {
+  color: var(--sage);
+  font-size: 0.72em;
+}
+
+.intro__date {
+  display: inline-block;
+  color: var(--sage);
+  margin-bottom: 2rem;
+  padding: 0.4rem 1.2rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.intro__body {
+  max-width: 26rem;
+  margin: 0 auto;
+}

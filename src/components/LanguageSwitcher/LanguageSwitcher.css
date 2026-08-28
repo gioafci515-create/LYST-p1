@@ -1,0 +1,43 @@
+.lang-switcher {
+  position: fixed;
+  top: calc(0.75rem + env(safe-area-inset-top));
+  right: 0.75rem;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+}
+
+.lang-switcher__item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.lang-switcher__option {
+  min-width: 40px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.35rem;
+  color: var(--text-muted);
+}
+
+.lang-switcher__option.is-active {
+  color: var(--text);
+}
+
+.lang-switcher__divider {
+  width: 1px;
+  height: 0.9rem;
+  background: var(--line);
+  transform: rotate(18deg);
+}
+
+/* three items at 320px: tighten tracking first, size only if needed */
+@media (max-width: 359px) {
+  .lang-switcher__option {
+    letter-spacing: 0.18em;
+    min-width: 36px;
+    padding: 0 0.2rem;
+  }
+}

@@ -1,0 +1,219 @@
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.rsvp-form__title {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  padding-inline: 2rem; /* clear the × control */
+}
+
+.rsvp-form__names {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.4rem;
+}
+
+@media (min-width: 480px) {
+  .rsvp-form__names {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.rsvp-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.rsvp-form__label {
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  color: var(--sage);
+  overflow-wrap: anywhere;
+}
+
+.rsvp-form input,
+.rsvp-form textarea,
+.rsvp-form select,
+.rsvp-form button {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.rsvp-form input,
+.rsvp-form textarea {
+  width: 100%;
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 0.7rem 0.85rem;
+  font-size: 16px; /* prevents iOS zoom-on-focus */
+  font-weight: 300;
+}
+
+.rsvp-form textarea {
+  resize: vertical;
+}
+
+.rsvp-form input[aria-invalid='true'],
+.rsvp-form textarea[aria-invalid='true'] {
+  border-color: var(--olive-light);
+}
+
+.rsvp-form__attendance {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
+}
+
+@media (min-width: 480px) {
+  .rsvp-form__attendance {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.rsvp-form__choice {
+  min-width: 0;
+  width: 100%;
+  min-height: 56px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--text);
+  font-size: 0.95rem;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.rsvp-form__choice.is-selected {
+  border-color: var(--olive-light);
+  background: var(--sage-dim);
+}
+
+/* guest-count stepper appears with a height transition, not a jump */
+.rsvp-form__stepper-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 350ms var(--ease-out), opacity 300ms ease;
+  opacity: 0;
+}
+
+.rsvp-form__stepper-wrap.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.rsvp-form__stepper-inner {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.rsvp-form__stepper {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.rsvp-form__step {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--text);
+  font-size: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rsvp-form__step:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.rsvp-form__count {
+  min-width: 2ch;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rsvp-form__stepper-wrap {
+    transition: none;
+  }
+}
+
+.rsvp-form__error {
+  font-size: 0.85rem;
+  color: var(--sage);
+  border-left: 2px solid var(--olive-light);
+  padding-left: 0.75rem;
+}
+
+.rsvp-form__submit {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1rem;
+}
+
+.rsvp-form__submit:disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+
+.rsvp-form__submit-seal {
+  position: relative;
+  display: inline-flex;
+}
+
+.rsvp-form__spinner {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  border-top-color: var(--sage);
+  animation: spin 900ms linear infinite;
+}
+
+.rsvp-form__submit-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: var(--text);
+}
+
+/* success state */
+
+.rsvp-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.4rem;
+  padding: 1rem 0;
+}
+
+.rsvp-success__names {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--sage);
+}
+
+.rsvp-success__again {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

@@ -1,0 +1,115 @@
+export type Lang = 'ka' | 'ru' | 'en';
+export type Localized = Record<Lang, string>;
+
+export const translations = {
+  openInstruction: {
+    ka: 'დააჭირეთ კონვერტს გასახსნელად',
+    ru: 'Нажмите на конверт, чтобы открыть',
+    en: 'Tap the envelope to open',
+  },
+  inviteEyebrow: { ka: 'გიწვევთ', ru: 'Приглашаем вас', en: 'We invite you' },
+  inviteTitle: { ka: 'ჩვენს ქორწილში', ru: 'на нашу свадьбу', en: 'to our wedding' },
+  inviteBody: {
+    ka: 'ბედნიერები ვიქნებით, თუ ამ განსაკუთრებულ დღეს ჩვენთან ერთად გაატარებთ',
+    ru: 'Будем счастливы, если вы разделите с нами этот особенный день',
+    en: 'We would be delighted if you spent this special day with us',
+  },
+  detailsTitle: { ka: 'ქორწილის დეტალები', ru: 'Детали свадьбы', en: 'Wedding details' },
+  detailsCta: { ka: 'დააჭირეთ აქ', ru: 'Нажмите здесь', en: 'Tap here' },
+  openLocation: { ka: 'ლოკაციის გახსნა', ru: 'Открыть локацию', en: 'Open location' },
+  dressCodeCta: { ka: 'დრეს-კოდი', ru: 'Дресс-код', en: 'Dress code' },
+  dressCodeTitle: { ka: 'დრეს-კოდი', ru: 'ДРЕСС-КОД', en: 'DRESS CODE' },
+  inspiration: { ka: 'შთაგონება', ru: 'ВДОХНОВЕНИЕ', en: 'INSPIRATION' },
+  rsvpTitle: { ka: 'სტუმრის ანკეტა', ru: 'Анкета гостя', en: 'Guest form' },
+  rsvpPrompt: {
+    ka: 'გთხოვთ, დაადასტუროთ თქვენი დასწრება',
+    ru: 'Пожалуйста, подтвердите своё присутствие',
+    en: 'Please confirm your attendance',
+  },
+  rsvpCta: { ka: 'შეავსეთ ანკეტა', ru: 'Заполнить анкету', en: 'Fill in the form' },
+  rsvpFormTitle: { ka: 'შემოგვიერთდებით?', ru: 'Присоединитесь к нам?', en: 'Will you join us?' },
+  nameLabel: { ka: 'სახელი და გვარი', ru: 'Имя и фамилия', en: 'Name and surname' },
+  firstName: { ka: 'სახელი', ru: 'Имя', en: 'First name' },
+  lastName: { ka: 'გვარი', ru: 'Фамилия', en: 'Last name' },
+  attending: { ka: 'სიხარულით დავესწრები', ru: 'С радостью буду', en: "I'll gladly attend" },
+  notAttending: {
+    ka: 'ვერ დავესწრები',
+    ru: 'К сожалению, не смогу',
+    en: "Sadly, I can't attend",
+  },
+  guestCount: { ka: 'სტუმრების რაოდენობა', ru: 'Количество гостей', en: 'Number of guests' },
+  message: { ka: 'შეტყობინება', ru: 'Сообщение', en: 'Message' },
+  submit: { ka: 'გაგზავნა', ru: 'Отправить', en: 'Send' },
+  sending: { ka: 'იგზავნება…', ru: 'Отправляется…', en: 'Sending…' },
+  thanks: {
+    ka: 'მადლობა დადასტურებისთვის',
+    ru: 'Спасибо за подтверждение',
+    en: 'Thank you for confirming',
+  },
+  alreadySent: {
+    ka: 'თქვენი პასუხი მიღებულია',
+    ru: 'Ваш ответ получен',
+    en: "We've received your response",
+  },
+  countdownTitle: {
+    ka: 'ჩვენს შეხვედრამდე დარჩა',
+    ru: 'До нашей встречи осталось',
+    en: 'Until we meet',
+  },
+  days: { ka: 'დღე', ru: 'дней', en: 'days' },
+  hours: { ka: 'საათი', ru: 'часов', en: 'hours' },
+  minutes: { ka: 'წუთი', ru: 'минут', en: 'minutes' },
+  seconds: { ka: 'წამი', ru: 'секунд', en: 'seconds' },
+  today: { ka: 'დღეს ჩვენი დღეა', ru: 'Сегодня наш день', en: 'Today is our day' },
+  withLove: { ka: 'სიყვარულით', ru: 'С любовью', en: 'With love' },
+  createdBy: {
+    ka: 'საიტი შექმნილია INVITÉ-ს მიერ',
+    ru: 'Сайт создан INVITÉ',
+    en: 'Site created by INVITÉ',
+  },
+  backToTop: { ka: 'თავში დაბრუნება', ru: 'Наверх', en: 'Back to top' },
+  errName: {
+    ka: 'გთხოვთ შეიყვანოთ სახელი',
+    ru: 'Пожалуйста, введите имя',
+    en: 'Please enter your first name',
+  },
+  errSurname: {
+    ka: 'გთხოვთ შეიყვანოთ გვარი',
+    ru: 'Пожалуйста, введите фамилию',
+    en: 'Please enter your last name',
+  },
+  errAttendance: {
+    ka: 'გთხოვთ აირჩიოთ დასწრების სტატუსი',
+    ru: 'Пожалуйста, выберите статус',
+    en: "Please choose whether you'll attend",
+  },
+  errNetwork: {
+    ka: 'გაგზავნა ვერ მოხერხდა. სცადეთ ხელახლა',
+    ru: 'Не удалось отправить. Попробуйте ещё раз',
+    en: "Couldn't send. Please try again",
+  },
+  musicOn: { ka: 'მუსიკის ჩართვა', ru: 'Включить музыку', en: 'Turn music on' },
+  musicOff: { ka: 'მუსიკის გამორთვა', ru: 'Выключить музыку', en: 'Turn music off' },
+  close: { ka: 'დახურვა', ru: 'Закрыть', en: 'Close' },
+  submitAgain: { ka: 'ხელახლა გაგზავნა', ru: 'Отправить ещё раз', en: 'Send again' },
+  countdownSr: {
+    ka: 'ქორწილი გაიმართება 2026 წლის 2 სექტემბერს, 18:00 საათზე',
+    ru: 'Свадьба состоится 2 сентября 2026 года в 18:00',
+    en: 'The wedding takes place on 2 September 2026 at 18:00',
+  },
+  photoAlt1: { ka: 'დათა და ქეთი', ru: 'Дата и Кети', en: 'Data and Keti' },
+  photoAlt2: { ka: 'წყვილის ფოტო', ru: 'Фото пары', en: 'Photo of the couple' },
+  altDressWomen: {
+    ka: 'ქალის სამოსის შთაგონება ქორწილის ფერებში',
+    ru: 'Женские образы в цветах свадьбы',
+    en: "Women's outfit inspiration in the wedding palette",
+  },
+  altDressMen: {
+    ka: 'მამაკაცის სამოსის შთაგონება ქორწილის ფერებში',
+    ru: 'Мужские образы в цветах свадьбы',
+    en: "Men's outfit inspiration in the wedding palette",
+  },
+  zoomHint: { ka: 'გაადიდეთ', ru: 'Увеличить', en: 'Zoom' },
+} satisfies Record<string, Localized>;
+
+export type TranslationKey = keyof typeof translations;

@@ -1,0 +1,99 @@
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-0.4deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.4deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease, transform 0.9s var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+
+.reveal.is-visible,
+.is-visible .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ————— tap feedback: quick, quiet, everywhere ————— */
+
+.paper-cta:active {
+  transform: scale(0.93);
+}
+
+.teaser-cta:active {
+  transform: scale(0.96);
+}
+
+.dress-modal__heart:active {
+  transform: scale(1.22);
+}
+
+.music-toggle:active,
+.back-to-top:active {
+  transform: scale(0.88);
+}
+
+.rsvp-form__choice:active {
+  transform: scale(0.97);
+}
+
+.rsvp-form__submit:active .wax-seal,
+.envelope:active .envelope__seal svg {
+  transform: scale(0.93);
+  transition: transform 120ms ease;
+}
+
+.lang-switcher__option:active {
+  transform: translateY(1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .paper-cta:active,
+  .teaser-cta:active,
+  .dress-modal__heart:active,
+  .music-toggle:active,
+  .back-to-top:active,
+  .rsvp-form__choice:active {
+    transform: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

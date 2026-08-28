@@ -23,6 +23,14 @@ body {
   min-height: 100svh;
 }
 
+/* Georgian: Erekles Stamba is the universal face (body copy, labels,
+   buttons, links) — matches the reference site's actual usage, which
+   applies it to nearly every ka-language element, not just headings. */
+html[lang='ka'] body {
+  font-family: var(--font-geo-display);
+  font-weight: 400;
+}
+
 img,
 svg {
   display: block;

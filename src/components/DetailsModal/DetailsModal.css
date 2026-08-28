@@ -4,6 +4,7 @@
   align-items: center;
   text-align: center;
   gap: 1.25rem;
+  justify-content: center;
 }
 
 /* shared quiet button (previously lived in the teaser stylesheet) */
@@ -72,7 +73,7 @@
 }
 
 .details-modal__entry::before {
-  content: '';
+  content: "";
   position: absolute;
   left: calc(-1.5rem - 2.5px);
   top: 0.5em;
@@ -99,7 +100,7 @@
   color: var(--text);
 }
 
-html[lang='ka'] .details-modal__venue {
+html[lang="ka"] .details-modal__venue {
   font-family: var(--font-geo-display);
   font-weight: 400;
 }

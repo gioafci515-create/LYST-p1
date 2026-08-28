@@ -35,6 +35,13 @@ html[lang='ka'] .section-heading {
   color: var(--sage);
 }
 
+/* Georgian eyebrow copy follows the same universal ka face — but not the
+   language-switcher labels (GEO/RU/EN), which are UI chrome, not content */
+html[lang='ka'] .eyebrow:not(.eyebrow--latin) {
+  font-family: var(--font-geo-display);
+  font-weight: 400;
+}
+
 /* Georgian has no uppercase — apply only to Latin labels via this class */
 .eyebrow--latin {
   text-transform: uppercase;

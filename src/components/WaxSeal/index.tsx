@@ -14,10 +14,10 @@ export function WaxSeal({ size = 64, glow = true }: WaxSealProps) {
   return (
     <span
       className={`wax-seal${glow ? ' wax-seal--glow' : ''}`}
-      style={{ width: size, height: size * 1.32 }}
+      style={{ width: size, height: size * 1.5 }}
       aria-hidden="true"
     >
-      <img src="assets/wax-seal.png" width={300} height={395} alt="" />
+      <img src="assets/wax-seal.png" width={300} height={450} alt="" />
     </span>
   );
 }

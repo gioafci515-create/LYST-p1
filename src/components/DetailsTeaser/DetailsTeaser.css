@@ -1,5 +1,9 @@
 .details-teaser {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .details-teaser__paper {
@@ -21,6 +25,7 @@
   flex-direction: column;
   align-items: center;
   color: var(--paper-ink);
+  justify-content: center;
 }
 
 .details-teaser__title {

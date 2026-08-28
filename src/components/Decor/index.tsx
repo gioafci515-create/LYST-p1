@@ -4,9 +4,9 @@ import './Decor.css';
 type Variant = 'intro' | 'photo-1' | 'photo-2' | 'details' | 'rsvp' | 'countdown' | 'footer';
 
 /**
- * Collage layer from the real PNG cut-outs — dense, both edges, mobile
- * included, so the page reads as a full paper collage. Filters tuned per
- * asset (the champagne coupe's burgundy bow swings to olive).
+ * Collage layer from the real PNG cut-outs — large, tucked close against
+ * the paper cards so it reads as a deliberate flourish rather than a
+ * faint stray in the corner. Filters tuned per asset.
  */
 export function Decor({ variant }: { variant: Variant }) {
   return (
@@ -31,90 +31,90 @@ interface Piece {
   style: CSSProperties;
 }
 
-const soften = 'saturate(0.75) brightness(0.86)';
-const greenify = 'saturate(0.65) hue-rotate(24deg) brightness(0.82)';
+const soften = 'saturate(0.8) brightness(0.9)';
+const greenify = 'saturate(0.7) hue-rotate(24deg) brightness(0.85)';
 
 const pieces: Record<Variant, Piece[]> = {
   intro: [
     {
       src: 'assets/flowers.png',
-      style: { top: '0.5%', left: '-2%', width: 'clamp(120px, 32vw, 220px)', transform: 'rotate(-10deg)', opacity: 0.6, filter: soften },
+      style: { top: '2%', left: '4%', width: 'clamp(170px, 46vw, 300px)', transform: 'rotate(-9deg)', opacity: 0.7, filter: soften },
     },
     {
       src: 'assets/butterfly.svg',
-      style: { top: '10%', right: '3%', width: 'clamp(40px, 10vw, 64px)', transform: 'rotate(12deg)', opacity: 0.55 },
+      style: { top: '14%', right: '9%', width: 'clamp(56px, 14vw, 86px)', transform: 'rotate(12deg)', opacity: 0.65 },
     },
     {
       src: 'assets/white-lily.png',
-      style: { top: '38%', right: '-1%', width: 'clamp(56px, 14vw, 96px)', transform: 'rotate(14deg)', opacity: 0.5, filter: soften },
+      style: { top: '42%', right: '3%', width: 'clamp(78px, 20vw, 130px)', transform: 'rotate(14deg)', opacity: 0.6, filter: soften },
     },
     {
       src: 'assets/floral-cascade.png',
-      style: { bottom: '2%', left: '-2%', width: 'clamp(80px, 20vw, 140px)', transform: 'rotate(8deg)', opacity: 0.45, filter: greenify },
+      style: { bottom: '3%', left: '2%', width: 'clamp(110px, 28vw, 190px)', transform: 'rotate(8deg)', opacity: 0.55, filter: greenify },
     },
   ],
   'photo-1': [
     {
       src: 'assets/butterfly.svg',
-      style: { top: '6%', left: '4%', width: 'clamp(36px, 9vw, 56px)', transform: 'rotate(-14deg) scaleX(-1)', opacity: 0.5 },
+      style: { top: '7%', left: '9%', width: 'clamp(50px, 13vw, 78px)', transform: 'rotate(-14deg) scaleX(-1)', opacity: 0.6 },
     },
     {
       src: 'assets/white-lily.png',
-      style: { bottom: '4%', right: '0%', width: 'clamp(54px, 13vw, 90px)', transform: 'rotate(-10deg)', opacity: 0.5, filter: soften },
+      style: { bottom: '5%', right: '5%', width: 'clamp(76px, 18vw, 124px)', transform: 'rotate(-10deg)', opacity: 0.6, filter: soften },
     },
   ],
   'photo-2': [
     {
       src: 'assets/floral-cascade.png',
-      style: { bottom: '1%', right: '-1%', width: 'clamp(90px, 24vw, 170px)', transform: 'rotate(-6deg)', opacity: 0.5, filter: greenify },
+      style: { bottom: '2%', right: '4%', width: 'clamp(120px, 32vw, 220px)', transform: 'rotate(-6deg)', opacity: 0.6, filter: greenify },
     },
     {
       src: 'assets/white-lily.png',
-      style: { top: '4%', left: '0%', width: 'clamp(50px, 12vw, 84px)', transform: 'rotate(-16deg) scaleX(-1)', opacity: 0.45, filter: soften },
+      style: { top: '5%', left: '5%', width: 'clamp(70px, 17vw, 116px)', transform: 'rotate(-16deg) scaleX(-1)', opacity: 0.55, filter: soften },
     },
   ],
   details: [
     {
       src: 'assets/ornate-frame.png',
-      style: { top: '1%', right: '-2%', width: 'clamp(80px, 20vw, 140px)', transform: 'rotate(6deg)', opacity: 0.4, filter: 'saturate(0.55) sepia(0.25) hue-rotate(40deg) brightness(0.8)' },
+      style: { top: '-1%', right: '3%', width: 'clamp(110px, 26vw, 180px)', transform: 'rotate(6deg)', opacity: 0.5, filter: 'saturate(0.6) sepia(0.25) hue-rotate(40deg) brightness(0.85)' },
     },
     {
       src: 'assets/champagne-coupe.png',
-      style: { bottom: '3%', left: '-1%', width: 'clamp(64px, 16vw, 110px)', transform: 'rotate(-8deg)', opacity: 0.45, filter: 'saturate(0.5) hue-rotate(95deg) brightness(0.8)' },
+      style: { bottom: '0%', left: '3%', width: 'clamp(90px, 22vw, 150px)', transform: 'rotate(-8deg)', opacity: 0.55, filter: 'saturate(0.55) hue-rotate(95deg) brightness(0.85)' },
     },
   ],
   rsvp: [
     {
       src: 'assets/butterfly.svg',
-      style: { top: '6%', right: '4%', width: 'clamp(38px, 9vw, 58px)', transform: 'rotate(10deg)', opacity: 0.5 },
+      style: { top: '5%', right: '8%', width: 'clamp(52px, 13vw, 80px)', transform: 'rotate(10deg)', opacity: 0.6 },
     },
     {
       src: 'assets/flowers.png',
-      style: { bottom: '2%', left: '-3%', width: 'clamp(90px, 22vw, 150px)', transform: 'rotate(10deg) scaleX(-1)', opacity: 0.45, filter: soften },
+      style: { bottom: '-1%', left: '1%', width: 'clamp(130px, 30vw, 210px)', transform: 'rotate(10deg) scaleX(-1)', opacity: 0.55, filter: soften },
     },
   ],
   countdown: [
     {
       src: 'assets/champagne-coupe.png',
-      style: { top: '4%', left: '0%', width: 'clamp(70px, 18vw, 120px)', transform: 'rotate(-10deg)', opacity: 0.5, filter: 'saturate(0.5) hue-rotate(95deg) brightness(0.8)' },
+      style: { top: '3%', left: '3%', width: 'clamp(96px, 24vw, 160px)', transform: 'rotate(-10deg)', opacity: 0.6, filter: 'saturate(0.55) hue-rotate(95deg) brightness(0.85)' },
     },
     {
       src: 'assets/floral-cascade.png',
-      style: { bottom: '4%', right: '-1%', width: 'clamp(84px, 22vw, 150px)', transform: 'scaleX(-1) rotate(4deg)', opacity: 0.45, filter: greenify },
+      style: { bottom: '3%', right: '2%', width: 'clamp(120px, 30vw, 200px)', transform: 'scaleX(-1) rotate(4deg)', opacity: 0.55, filter: greenify },
     },
     {
       src: 'assets/butterfly.svg',
-      style: { top: '12%', right: '6%', width: 'clamp(34px, 8vw, 52px)', transform: 'rotate(-12deg) scaleX(-1)', opacity: 0.45 },
+      style: { top: '12%', right: '10%', width: 'clamp(46px, 11vw, 70px)', transform: 'rotate(-12deg) scaleX(-1)', opacity: 0.55 },
     },
   ],
   footer: [
     {
       src: 'assets/white-lily.png',
-      style: { top: '8%', left: '4%', width: 'clamp(46px, 11vw, 76px)', transform: 'rotate(-12deg)', opacity: 0.45, filter: soften },
+      style: { top: '6%', left: '7%', width: 'clamp(64px, 16vw, 106px)', transform: 'rotate(-12deg)', opacity: 0.55, filter: soften },
     },
     {
       src: 'assets/butterfly.svg',
-      style: { top: '14%', right: '5%', width: 'clamp(34px, 8vw, 52px)', transform: 'rotate(14deg)', opacity: 0.45 },
+      style: { top: '12%', right: '9%', width: 'clamp(46px, 11vw, 70px)', transform: 'rotate(14deg)', opacity: 0.55 },
     },
   ],
 };

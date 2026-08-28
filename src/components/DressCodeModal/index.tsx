@@ -17,7 +17,7 @@ export function DressCodeModal({ onClose }: { onClose: () => void }) {
       <div className="dress-modal">
         <img
           className="dress-modal__branch"
-          src="assets/dresscode-branch.png"
+          src="assets/dresscode-branch.svg"
           width={140}
           height={78}
           alt=""

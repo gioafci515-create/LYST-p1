@@ -16,13 +16,14 @@
     transform 700ms ease 1000ms;
 }
 
-/* painted landscape with a slow breathing zoom; dimmed for legibility */
+/* painted landscape, dimmed for legibility. Appears once on load —
+   a quick settle-in, not a continuous loop. */
 .gate__bg {
   position: absolute;
   inset: 0;
   background: url('/assets/mainback.jpg') center / cover no-repeat;
-  animation: gate-zoom 22s ease-in-out infinite alternate;
-  will-change: transform;
+  animation: gate-appear 1100ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform, opacity;
 }
 
 .gate__bg::after {
@@ -37,12 +38,14 @@
   );
 }
 
-@keyframes gate-zoom {
+@keyframes gate-appear {
   from {
-    transform: scale(1);
+    opacity: 0;
+    transform: scale(1.045);
   }
   to {
-    transform: scale(1.09);
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -209,7 +212,7 @@
   top: 56%;
   left: 50%;
   width: clamp(64px, 19vw, 82px);
-  aspect-ratio: 300 / 395; /* ribbon tails hang below the disc */
+  aspect-ratio: 300 / 450; /* ribbon tails hang below the disc */
   transform: translate(-50%, -32%);
   z-index: 5;
   transition: transform 200ms ease;
@@ -241,12 +244,13 @@
   height: 100%;
 }
 
+/* straight vertical split at the exact center — breaks evenly */
 .envelope__seal-half--left {
-  clip-path: polygon(0 0, 54% 0, 46% 100%, 0 100%);
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
 }
 
 .envelope__seal-half--right {
-  clip-path: polygon(54% 0, 100% 0, 100% 100%, 46% 100%);
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
 }
 
 .gate--opening .envelope__seal-half--left {
@@ -267,7 +271,7 @@
   }
 
   .gate__bg {
-    animation: none;
+    animation: gate-appear 300ms ease both;
   }
 
   .gate--opening {

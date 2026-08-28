@@ -35,10 +35,9 @@
   font-size: clamp(1.3rem, 5vw, 1.9rem);
 }
 
-/* quiet underlined ink link, sitting under the baked dove illustration */
+/* shared quiet underlined ink link — every card using it must set its
+   own margin-top/bottom; do not add layout rules here, only typography */
 .paper-cta {
-  margin-top: auto;
-  margin-bottom: 22%;
   min-height: 44px;
   padding: 0.5rem 1rem;
   color: var(--paper-ink);
@@ -47,6 +46,12 @@
   text-decoration: underline;
   text-underline-offset: 6px;
   text-decoration-thickness: 1px;
+}
+
+/* pushes the button to the bottom of the flex column, under the doves */
+.details-teaser .paper-cta {
+  margin-top: auto;
+  margin-bottom: 22%;
 }
 
 .paper-cta:hover {

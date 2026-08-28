@@ -2,6 +2,7 @@ import { useScrollReveal } from '../../hooks/useScrollReveal';
 import { useLanguage } from '../../context/LanguageContext';
 import { useInvitation } from '../../context/InvitationContext';
 import { wedding } from '../../data/wedding';
+import { Decor } from '../Decor';
 import './RsvpTeaser.css';
 
 interface RsvpTeaserProps {
@@ -18,12 +19,13 @@ export function RsvpTeaser({ hasSubmitted, onOpen }: RsvpTeaserProps) {
 
   return (
     <section className="rsvp-teaser section" ref={ref}>
+      <Decor variant="rsvp" />
       <div className="section__inner">
         <div className="rsvp-teaser__paper reveal" style={{ ['--i' as string]: 0 }}>
           <img
-            src={isOpened ? 'assets/floral-frame.png' : undefined}
-            width={640}
-            height={941}
+            src={isOpened ? 'assets/square-paper.png' : undefined}
+            width={820}
+            height={1230}
             alt=""
             loading="lazy"
             decoding="async"

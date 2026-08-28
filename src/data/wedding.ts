@@ -45,9 +45,14 @@ export const wedding = {
   /* Dress code modal. Hexes sampled from the poster's heart swatches
      (dresscode-source.jpg row at y=350). */
   dressCodeIntro: {
-    ka: 'ჩვენთვის მთავარია თქვენი დასწრება! თუმცა გაგვიხარდება, თუ თქვენი სამოსით ჩვენი ქორწილის ფერებს აჰყვებით.',
-    ru: 'Для нас главное — ваше присутствие! Но мы будем рады, если в своих нарядах вы поддержите цветовую гамму нашей свадьбы.',
-    en: "What matters most is that you're there. But we'd be glad if your outfit echoed the colours of our wedding.",
+    ka: 'ჩვენთვის მთავარია თქვენი დასწრება! გაგვიხარდება, თუ თქვენი სამოსით ჩვენი ქორწილის ფერებს აჰყვებით.',
+    ru: 'Для нас главное — ваше присутствие! Мы будем рады, если в своих нарядах вы поддержите цветовую гамму нашей свадьбы.',
+    en: "What matters most is that you're there. We'd be glad if your outfit echoed the colours of our wedding.",
+  },
+  dressCodeNoWhite: {
+    ka: 'გთხოვთ, გაითვალისწინოთ — თეთრი და თეთრის ნებისმიერი ელფერი დაუშვებელია',
+    ru: 'Пожалуйста, учтите — белый и любые его оттенки недопустимы',
+    en: 'Please note — white, and any shade of it, is not allowed',
   },
   dressCodePalette: [
     { hex: '#E1C6A9', name: { ka: 'შამპანური', ru: 'Шампань', en: 'Champagne' } },

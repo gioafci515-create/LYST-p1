@@ -59,6 +59,19 @@ html[lang='ka'] .dress-modal__title {
   font-size: clamp(0.85rem, 3.2vw, 0.95rem);
   line-height: 1.75;
   color: #5a4632;
+  margin-bottom: 1rem;
+}
+
+/* the rule that matters: no white, no shades of it */
+.dress-modal__no-white {
+  max-width: 40ch;
+  font-size: clamp(0.78rem, 3vw, 0.88rem);
+  line-height: 1.6;
+  font-weight: 500;
+  color: #5a4632;
+  border: 1px solid rgba(90, 70, 50, 0.45);
+  border-radius: 2px;
+  padding: 0.6rem 1.1rem;
   margin-bottom: 1.75rem;
 }
 
@@ -111,75 +124,6 @@ html[lang='ka'] .dress-modal__title {
   letter-spacing: 0.12em;
   color: #5a4632;
   margin: 0.6rem 0 1.4rem;
-}
-
-.dress-modal__divider {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  font-size: 0.7rem;
-  letter-spacing: 0.32em;
-  color: #5a4632;
-  margin-bottom: 1.5rem;
-  white-space: nowrap;
-}
-
-.dress-modal__figure-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
-  width: 100%;
-}
-
-.dress-modal__figures {
-  display: block;
-  width: 100%;
-  padding: 0;
-}
-
-.dress-modal__figures img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 2px;
-}
-
-.dress-modal__figures:hover {
-  transform: none;
-  opacity: 0.92;
-}
-
-/* lightbox — full-screen, pinch-zoomable */
-.dress-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 130;
-  background: rgba(11, 18, 10, 0.94);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  touch-action: pinch-zoom;
-  overflow: auto;
-}
-
-.dress-lightbox img {
-  max-width: 100vw;
-  width: max(100vw, 680px);
-  height: auto;
-}
-
-.dress-lightbox__close {
-  position: fixed;
-  top: calc(0.5rem + env(safe-area-inset-top));
-  right: 0.75rem;
-  width: 44px;
-  height: 44px;
-  color: var(--text);
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 @media (prefers-reduced-motion: reduce) {

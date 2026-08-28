@@ -56,7 +56,7 @@ export function PhotoSection({ index, photo, altKey }: PhotoSectionProps) {
         ref(node);
       }}
     >
-      {index === 2 && <Decor variant="photo-2" />}
+      <Decor variant={index === 1 ? 'photo-1' : 'photo-2'} />
       <div className="section__inner reveal">
         {/* src attaches only after the envelope opens — before that the
             megabyte polaroids would compete with the gate's first paint */}

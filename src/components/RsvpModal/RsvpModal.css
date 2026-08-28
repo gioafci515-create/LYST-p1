@@ -178,9 +178,13 @@
   display: inline-flex;
 }
 
+/* rings only the disc, not the ribbon tails hanging below it */
 .rsvp-form__spinner {
   position: absolute;
-  inset: -8px;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid transparent;
   border-top-color: var(--sage);
@@ -208,6 +212,11 @@
   font-family: var(--font-display);
   font-size: 1.4rem;
   color: var(--sage);
+}
+
+html[lang='ka'] .rsvp-success__names {
+  font-family: var(--font-geo-display);
+  font-weight: 400;
 }
 
 .rsvp-success__again {

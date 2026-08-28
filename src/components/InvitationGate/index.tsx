@@ -2,7 +2,6 @@ import { useCallback, useRef, useState } from 'react';
 import { useInvitation } from '../../context/InvitationContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { wedding } from '../../data/wedding';
-import { SealArt } from '../WaxSeal';
 import './InvitationGate.css';
 
 interface InvitationGateProps {
@@ -40,6 +39,7 @@ export function InvitationGate({ onOpenAudio, onOpened }: InvitationGateProps) {
 
   return (
     <div className={`gate gate--${phase}`}>
+      <div className="gate__bg" aria-hidden="true" />
       <div className="gate__logo" aria-hidden="true">
         <span>{wedding.initials.first}</span>
         <span className="gate__logo-divider" />
@@ -72,14 +72,10 @@ export function InvitationGate({ onOpenAudio, onOpened }: InvitationGateProps) {
           />
           <span className="envelope__seal">
             <span className="envelope__seal-half envelope__seal-half--left">
-              <svg viewBox="0 0 64 64" aria-hidden="true">
-                <SealArt />
-              </svg>
+              <img src="assets/wax-seal.png" alt="" aria-hidden="true" />
             </span>
             <span className="envelope__seal-half envelope__seal-half--right">
-              <svg viewBox="0 0 64 64" aria-hidden="true">
-                <SealArt />
-              </svg>
+              <img src="assets/wax-seal.png" alt="" aria-hidden="true" />
             </span>
           </span>
         </button>

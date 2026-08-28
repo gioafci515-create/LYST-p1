@@ -20,15 +20,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 0.4rem;
-  /* the floral crown owns the top ~30% of the frame — text starts under it */
-  padding: 34% 17% 14%;
+  justify-content: center;
+  gap: 0.5rem;
+  /* square paper sheet: generous even margins */
+  padding: 20% 15%;
   color: var(--paper-ink);
-}
-
-.rsvp-teaser__content .paper-cta {
-  margin-top: auto; /* CTA settles toward the frame's lower arc */
 }
 
 .rsvp-teaser__title {

@@ -33,14 +33,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30% 16% 15%;
+  /* top clears the floral crown; bottom trimmed back (was 15) so the
+     centered block sits higher instead of hanging low in the card */
+  padding: 28% 16% 22%;
   color: var(--paper-ink);
   text-align: center;
   transform: translateX(1.8%);
 }
 
+/* .eyebrow (typography.css, shared by every label on the site) keeps
+   winning this element's font-size despite equal-or-lower specificity —
+   same cascade quirk hit on the details-teaser title fix. !important
+   forces the bigger size through for this one, deliberately oversized
+   label. */
 .intro__eyebrow {
   color: #5a4632;
+  font-size: 0.95rem !important;
   margin-bottom: 0.75rem;
 }
 

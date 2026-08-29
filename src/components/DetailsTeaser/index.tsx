@@ -24,8 +24,8 @@ export function DetailsTeaser({ onOpen }: DetailsTeaserProps) {
         >
           <img
             src={isOpened ? "assets/flower-paper.png" : undefined}
-            width={830}
-            height={856}
+            width={820}
+            height={846}
             alt=""
             loading="lazy"
             decoding="async"

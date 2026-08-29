@@ -46,17 +46,29 @@ html[lang='ka'] .details-teaser__title {
   font-size: clamp(1.25rem, 4.2vw, 1.7rem) !important;
 }
 
-/* shared quiet underlined ink link — every card using it must set its
-   own margin-top/bottom; do not add layout rules here, only typography */
+/* shared solid button — used on both the wedding-details card and the
+   RSVP card. min-width holds them to the same visual size regardless of
+   the two languages' different text lengths; every card using it must
+   set its own margin-top/bottom, no layout rules here, only the button
+   itself. */
 .paper-cta {
-  min-height: 44px;
-  padding: 0.5rem 1rem;
-  color: var(--paper-ink);
-  font-size: 0.85rem;
-  letter-spacing: 0.18em;
-  text-decoration: underline;
-  text-underline-offset: 6px;
-  text-decoration-thickness: 1px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  min-height: 48px;
+  padding: 0.7rem 1.5rem;
+  background: var(--olive);
+  color: var(--lace);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  border-radius: 2px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(26, 31, 20, 0.18);
+  transition:
+    background-color 200ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease;
 }
 
 /* pushes the button to the bottom of the flex column, under the doves */
@@ -66,5 +78,6 @@ html[lang='ka'] .details-teaser__title {
 }
 
 .paper-cta:hover {
-  opacity: 0.7;
+  background: var(--olive-light);
+  box-shadow: 0 3px 9px rgba(26, 31, 20, 0.24);
 }

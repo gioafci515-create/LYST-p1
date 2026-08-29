@@ -272,12 +272,12 @@ function Dashboard({ s, lang, supabase, onSignOut }: DashboardProps) {
   };
 
   const cards = [
-    { label: s('totalResponses'), value: rows.length },
-    { label: s('attending'), value: stats.attending },
-    { label: s('notAttending'), value: stats.notAttending },
-    { label: s('headcount'), value: stats.headcount },
-    { label: s('opens'), value: opens },
-    { label: s('responseRate'), value: stats.rate === null ? '—' : `${stats.rate}%` },
+    { key: 'total', label: s('totalResponses'), value: rows.length },
+    { key: 'attending', label: s('attending'), value: stats.attending },
+    { key: 'notAttending', label: s('notAttending'), value: stats.notAttending },
+    { key: 'headcount', label: s('headcount'), value: stats.headcount },
+    { key: 'opens', label: s('opens'), value: opens },
+    { key: 'rate', label: s('responseRate'), value: stats.rate === null ? '—' : `${stats.rate}%` },
   ];
 
   return (
@@ -317,7 +317,7 @@ function Dashboard({ s, lang, supabase, onSignOut }: DashboardProps) {
         <>
           <section className="admin__stats">
             {cards.map((card) => (
-              <div key={card.label} className={`admin__card${state === 'loading' ? ' is-loading' : ''}`}>
+              <div key={card.key} className={`admin__card${state === 'loading' ? ' is-loading' : ''}`}>
                 <span className="admin__card-value">{state === 'loading' ? '' : card.value}</span>
                 <span className="admin__card-label">{card.label}</span>
               </div>

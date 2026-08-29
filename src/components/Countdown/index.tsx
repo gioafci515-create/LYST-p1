@@ -15,10 +15,10 @@ export function Countdown() {
   const { days, hours, minutes, seconds, isPast } = useCountdown(wedding.date);
 
   const units = [
-    { value: days, label: t('days') },
-    { value: hours, label: t('hours') },
-    { value: minutes, label: t('minutes') },
-    { value: seconds, label: t('seconds') },
+    { key: 'days', value: days, label: t('days') },
+    { key: 'hours', value: hours, label: t('hours') },
+    { key: 'minutes', value: minutes, label: t('minutes') },
+    { key: 'seconds', value: seconds, label: t('seconds') },
   ];
 
   return (
@@ -47,7 +47,7 @@ export function Countdown() {
           >
             {units.map((unit, i) => (
               <div
-                key={unit.label}
+                key={unit.key}
                 className={`countdown__unit${i > 0 ? ' countdown__unit--divided' : ''}`}
                 data-reveal="rise"
                 data-reveal-delay="380"

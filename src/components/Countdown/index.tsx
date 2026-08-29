@@ -1,4 +1,3 @@
-import { useScrollReveal } from '../../hooks/useScrollReveal';
 import { useCountdown } from '../../hooks/useCountdown';
 import { useLanguage } from '../../context/LanguageContext';
 import { wedding } from '../../data/wedding';
@@ -8,9 +7,12 @@ import './Countdown.css';
 
 const pad = (n: number) => String(n).padStart(2, '0');
 
+/** Reveal: wax seal scales from 0.86 with its glow fading up over
+ *  --dur-slow → title mask (+200ms) → the four units rise with stagger
+ *  (+380ms). Digits animate in once; ticking afterwards never
+ *  re-triggers the reveal (classList add is one-shot). */
 export function Countdown() {
   const { t } = useLanguage();
-  const ref = useScrollReveal<HTMLElement>();
   const { days, hours, minutes, seconds, isPast } = useCountdown(wedding.date);
 
   const units = [
@@ -21,25 +23,37 @@ export function Countdown() {
   ];
 
   return (
-    <section className="countdown section" ref={ref}>
+    <section className="countdown section">
       <Decor variant="countdown" />
       <div className="section__inner">
-        <div className="reveal" style={{ ['--i' as string]: 0 }}>
-          <WaxSeal size={72} />
+        <div className="countdown__seal-sticky">
+          <WaxSeal size={72} reveal scaleFrom={0.86} />
         </div>
-        <h2 className="eyebrow countdown__title reveal" style={{ ['--i' as string]: 1 }}>
-          {t('countdownTitle')}
+        <h2 className="eyebrow countdown__title" data-reveal="mask" data-reveal-delay="200">
+          <span className="line">
+            <span className="line__inner">{t('countdownTitle')}</span>
+          </span>
         </h2>
         <span className="visually-hidden">{t('countdownSr')}</span>
 
         {isPast ? (
-          <p className="section-heading countdown__today reveal" style={{ ['--i' as string]: 2 }}>
+          <p className="section-heading countdown__today" data-reveal="rise" data-reveal-delay="380">
             {t('today')}
           </p>
         ) : (
-          <div className="countdown__grid reveal" style={{ ['--i' as string]: 2 }} aria-live="off" aria-hidden="true">
+          <div
+            className="countdown__grid"
+            data-reveal-stagger
+            aria-live="off"
+            aria-hidden="true"
+          >
             {units.map((unit, i) => (
-              <div key={unit.label} className={`countdown__unit${i > 0 ? ' countdown__unit--divided' : ''}`}>
+              <div
+                key={unit.label}
+                className={`countdown__unit${i > 0 ? ' countdown__unit--divided' : ''}`}
+                data-reveal="rise"
+                data-reveal-delay="380"
+              >
                 <span className="countdown__value">{pad(unit.value)}</span>
                 <span className="countdown__label">{unit.label}</span>
               </div>

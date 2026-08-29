@@ -47,6 +47,7 @@
   --font-script: 'Great Vibes', cursive;
   --font-body: 'Manrope', 'FiraGO', 'Noto Sans Georgian', system-ui, sans-serif;
 
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  /* motion tokens (--ease-out, --dur-*, --stagger) live in animations.css —
+     single source of truth per the Phase 4 spec */
   --content-max: 680px;
 }

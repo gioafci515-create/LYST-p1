@@ -39,11 +39,32 @@
   width: 100%;
   text-align: left;
   padding-left: 1.5rem;
-  border-left: 1px solid var(--line);
   display: flex;
   flex-direction: column;
   gap: 0.95rem;
   margin-top: 0.5rem;
+}
+
+/* the hairline itself — draws downward on open, starts first */
+.details-modal__timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+  transform-origin: top;
+  animation: timeline-draw var(--dur-slow) var(--ease-soft) both;
+}
+
+@keyframes timeline-draw {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
 }
 
 .details-modal__entry {
@@ -55,19 +76,20 @@
 }
 
 .details-modal__entry:nth-child(1) {
-  animation-delay: 140ms;
+  animation-delay: 100ms;
 }
 
 .details-modal__entry:nth-child(2) {
-  animation-delay: 240ms;
+  animation-delay: 210ms;
 }
 
 .details-modal__entry:nth-child(3) {
-  animation-delay: 340ms;
+  animation-delay: 320ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .details-modal__entry {
+  .details-modal__entry,
+  .details-modal__timeline::before {
     animation: none;
   }
 }

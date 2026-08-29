@@ -1,11 +1,31 @@
 .countdown {
   text-align: center;
+  /* extra runway above the digits so the sticky seal has room to hold
+     while they scroll into place beneath it */
+  padding-top: clamp(6rem, 20vw, 10rem);
 }
 
 .countdown .section__inner {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* sticky moment #2: the seal holds near the top of the viewport while
+   the title/digits scroll up to meet it, then releases naturally once
+   the section's own height runs out. Static under reduced motion (no
+   holds at all) and if any ancestor ever gains scroll-affecting
+   overflow, this just silently behaves as a normal in-flow element. */
+.countdown__seal-sticky {
+  position: sticky;
+  top: 14vh;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .countdown__seal-sticky {
+    position: static;
+  }
 }
 
 .countdown__title {

@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="ka">
   <head>
+    <!-- Reveal-engine gate: only add this class do [data-reveal] elements
+         start hidden (see animations.css). If JS never runs, this script
+         never executes, nothing is ever hidden, and the invitation is a
+         normal, fully readable page. Runs synchronously before body
+         paints. -->
+    <script>
+      document.documentElement.classList.add('reveal-ready');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#0B120A" />

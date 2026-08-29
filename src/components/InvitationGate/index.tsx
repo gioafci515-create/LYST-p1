@@ -64,7 +64,7 @@ export function InvitationGate({ onOpenAudio, onOpened }: InvitationGateProps) {
           />
           <img
             className="envelope__opened"
-            src="assets/envelope-open.png"
+            src={phase === 'opening' ? 'assets/envelope-open.png' : undefined}
             width={700}
             height={1050}
             alt=""

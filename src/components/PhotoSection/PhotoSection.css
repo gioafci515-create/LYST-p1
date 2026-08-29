@@ -12,5 +12,34 @@
 .photo-section__polaroid {
   width: min(82vw, 420px);
   height: auto;
-  will-change: transform;
+}
+
+/* native scroll-linked drift, max 6% total range. Uses the `translate`
+   property (not `transform`) so it never fights the reveal engine's
+   entrance scale, which animates `transform` on the same element. The
+   rAF fallback (useScrollDrift) sets the same `translate` property for
+   browsers without view-timeline support, so only one of the two is
+   ever active. */
+@supports (animation-timeline: view()) {
+  .photo-section__polaroid {
+    animation: photo-drift linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+
+  @keyframes photo-drift {
+    from {
+      translate: 0 -3%;
+    }
+    to {
+      translate: 0 3%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-section__polaroid {
+    animation: none !important;
+    translate: none !important;
+  }
 }

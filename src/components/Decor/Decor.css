@@ -8,6 +8,41 @@
 
 .decor__piece {
   position: absolute;
+  transition-duration: var(--dur-drift) !important;
+}
+
+/* the reveal engine's generic rule targets opacity:1 on reveal — decor
+   pieces need to land at their own design opacity instead (they're
+   deliberately semi-transparent), so this overrides just for them */
+.decor__piece[data-reveal].is-revealed {
+  opacity: var(--target-opacity, 1) !important;
+}
+
+/* half-rate parallax: photos drift max 6%, decor drifts at half that.
+   Pure CSS scroll-driven animation — costs nothing in the JS rAF budget
+   and simply doesn't run in unsupporting browsers (acceptable per the
+   Phase 4 perf budget's own fallback allowance). */
+@supports (animation-timeline: view()) {
+  .decor__piece {
+    animation: decor-drift linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+
+  @keyframes decor-drift {
+    from {
+      translate: 0 -1.5%;
+    }
+    to {
+      translate: 0 1.5%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decor__piece {
+    animation: none !important;
+  }
 }
 
 @media (max-width: 767px) {

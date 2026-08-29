@@ -1,0 +1,26 @@
+/* base .scroll-progress rule (position/height/color) lives in
+   styles/animations.css — this file only adds the native
+   scroll-timeline-driven animation where the browser supports it. The
+   JS fallback (setting inline width) skips itself when this applies. */
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: scroll-progress-fill linear both;
+    animation-timeline: scroll(root);
+  }
+
+  @keyframes scroll-progress-fill {
+    to {
+      transform: scaleX(1);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress {
+    display: none;
+  }
+}

@@ -66,7 +66,12 @@ for (const vp of viewports) {
       expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
       await page.evaluate(() => window.scrollTo(0, 0));
 
-      // sections reveal
+      // sections reveal — data-reveal engine, not the old .reveal class.
+      // scrollIntoViewIfNeeded() alone can land an element right at the
+      // edge of the -12% bottom rootMargin (barely intersecting, correctly
+      // NOT yet fired); nudge with a real scroll continuation to match how
+      // a guest actually arrives at a section, then give the longest
+      // reveal (line-mask, --dur-slow + stagger) time to finish.
       const sections = [
         '.intro',
         '.photo-section >> nth=0',
@@ -78,12 +83,22 @@ for (const vp of viewports) {
       ];
       for (const [i, selector] of sections.entries()) {
         await page.locator(selector).scrollIntoViewIfNeeded();
-        await page.waitForTimeout(1100);
+        await page.evaluate(() => window.scrollBy(0, 150));
+        // longest reveal on the page: intro decor at up to 1140ms delay +
+        // 1800ms (--dur-drift) duration = 2940ms; pad above that
+        await page.waitForTimeout(3200);
         const stuck = await page.locator(selector).evaluate((el) => {
-          const targets = el.matches('.reveal') ? [el] : Array.from(el.querySelectorAll('.reveal'));
-          return targets.filter((t) => Number(getComputedStyle(t).opacity) < 0.99).length;
+          const targets = el.matches('[data-reveal]')
+            ? [el]
+            : Array.from(el.querySelectorAll('[data-reveal]'));
+          // "revealed" means opacity moved off its hidden 0 baseline —
+          // not that it reached 1. Decor pieces intentionally settle at
+          // their own design opacity (e.g. 0.55-0.65), never 1.
+          return targets
+            .filter((t) => Number(getComputedStyle(t).opacity) <= 0.02)
+            .map((t) => t.className || t.tagName);
         });
-        expect(stuck, `${selector} reveal stuck`).toBe(0);
+        expect(stuck, `${selector} reveal stuck: ${JSON.stringify(stuck)}`).toEqual([]);
         await assertNoHorizontalOverflow(page, selector);
         if (i === 0 || i === 2 || i === 5) {
           await shot(page, vp.name, lang, `04-section-${i}`);

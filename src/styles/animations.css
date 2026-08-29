@@ -1,3 +1,90 @@
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1); /* entrances */
+  --ease-soft: cubic-bezier(0.33, 0, 0.15, 1); /* long drifts */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* cross-fades */
+
+  --dur-fast: 420ms;
+  --dur-base: 760ms;
+  --dur-slow: 1100ms;
+  --dur-drift: 1800ms;
+
+  --stagger: 110ms;
+}
+
+/* ————— reveal engine —————
+   Progressive enhancement gate: an inline script in index.html adds
+   .reveal-ready to <html> before first paint. Only THEN do [data-reveal]
+   elements start hidden. If JS never runs, nothing is ever hidden — the
+   invitation is just a normal, fully readable page. */
+
+[data-reveal] {
+  transition:
+    opacity var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out),
+    filter var(--dur-base) var(--ease-out);
+  transition-delay: calc(var(--i, 0) * var(--stagger) + var(--delay, 0ms));
+}
+
+.reveal-ready [data-reveal] {
+  opacity: 0;
+}
+
+.reveal-ready [data-reveal='rise'] {
+  transform: translateY(34px);
+}
+
+.reveal-ready [data-reveal='scale'] {
+  transform: scale(var(--scale-from, 1.04));
+}
+
+.reveal-ready [data-reveal='blur'] {
+  filter: blur(10px);
+}
+
+/* fade: opacity only, no transform baseline */
+
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* ————— line-mask reveal for display type ————— */
+
+.line {
+  display: block;
+  overflow: hidden;
+}
+
+.line__inner {
+  display: block;
+  transform: translateY(105%);
+  transition: transform var(--dur-slow) var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 140ms + var(--delay, 0ms));
+}
+
+.reveal-ready [data-reveal='mask'] {
+  opacity: 1; /* the mask wrapper itself is never faded, only the inner line */
+}
+
+.is-revealed .line__inner {
+  transform: none;
+}
+
+/* ————— scroll progress hairline ————— */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--olive-light);
+  z-index: 70;
+  pointer-events: none;
+  transform-origin: left;
+}
+
 @keyframes float {
   0%,
   100% {
@@ -15,19 +102,6 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.9s ease, transform 0.9s var(--ease-out);
-  transition-delay: calc(var(--i, 0) * 90ms);
-}
-
-.reveal.is-visible,
-.is-visible .reveal {
-  opacity: 1;
-  transform: none;
 }
 
 @keyframes fade-up {
@@ -75,12 +149,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
   .paper-cta:active,
   .teaser-cta:active,
   .dress-modal__heart:active,
@@ -88,6 +156,32 @@
   .back-to-top:active,
   .rsvp-form__choice:active {
     transform: none;
+  }
+
+  /* reveal engine: reduced, not removed — a brief opacity fade stays so
+     arrival is still perceptible, but no sliding, scaling, blurring, or
+     masking */
+  [data-reveal] {
+    transition: opacity 250ms ease !important;
+  }
+
+  .reveal-ready [data-reveal='rise'],
+  .reveal-ready [data-reveal='scale'] {
+    transform: none !important;
+  }
+
+  .reveal-ready [data-reveal='blur'] {
+    filter: none !important;
+  }
+
+  /* no line masks — headings render plainly */
+  .line__inner {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .scroll-progress {
+    display: none !important;
   }
 
   *,

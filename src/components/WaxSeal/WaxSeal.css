@@ -16,6 +16,17 @@
   pointer-events: none;
 }
 
+/* when this seal opts into the reveal engine, the glow fades up
+   alongside the scale-in rather than being present immediately */
+.reveal-ready .wax-seal--glow[data-reveal]::before {
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease-out);
+}
+
+.wax-seal--glow[data-reveal].is-revealed::before {
+  opacity: 1;
+}
+
 .wax-seal img {
   position: relative;
   width: 100%;

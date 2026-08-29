@@ -7,21 +7,38 @@ type Variant = 'intro' | 'photo-1' | 'photo-2' | 'details' | 'rsvp' | 'countdown
  * Collage layer from the real PNG cut-outs — large, tucked close against
  * the paper cards so it reads as a deliberate flourish rather than a
  * faint stray in the corner. Filters tuned per asset.
+ *
+ * Always fades in at --dur-drift, delayed behind its section's own
+ * content (intro's crown-adjacent pieces specifically at 900ms per the
+ * storyboard; everything else in the general 300-600ms band).
  */
 export function Decor({ variant }: { variant: Variant }) {
+  const baseDelay = variant === 'intro' ? 900 : 300;
   return (
     <div className="decor" aria-hidden="true">
-      {pieces[variant].map((piece, i) => (
-        <img
-          key={i}
-          src={piece.src}
-          alt=""
-          loading="lazy"
-          decoding="async"
-          className="decor__piece"
-          style={piece.style}
-        />
-      ))}
+      {pieces[variant].map((piece, i) => {
+        // opacity is pulled out of the inline style and into a custom
+        // property: an inline `style.opacity` would always beat the
+        // reveal engine's stylesheet-based opacity rules (inline wins
+        // over any external rule short of !important), permanently
+        // freezing the element at its design opacity and silently
+        // defeating the fade-in entirely.
+        const { opacity: targetOpacity, ...rest } = piece.style;
+        const style = { ...rest, '--target-opacity': targetOpacity } as CSSProperties;
+        return (
+          <img
+            key={i}
+            src={piece.src}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="decor__piece"
+            style={style}
+            data-reveal="fade"
+            data-reveal-delay={baseDelay + i * 120}
+          />
+        );
+      })}
     </div>
   );
 }

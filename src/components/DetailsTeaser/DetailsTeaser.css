@@ -11,6 +11,8 @@
   max-width: 440px;
   margin: 0 auto;
   transform: rotate(-0.6deg);
+  background-color: red;
+  oadd
 }
 
 .details-teaser__paper > img {
@@ -26,6 +28,8 @@
   align-items: center;
   color: var(--paper-ink);
   justify-content: center;
+  padding: -200px;
+  gap: 20px;
 }
 
 .details-teaser__title {

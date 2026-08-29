@@ -25,7 +25,6 @@
   /* square paper sheet: generous even margins */
   padding: 20% 15%;
   color: var(--paper-ink);
-  padding-top: 0.5rem;
 }
 
 .rsvp-teaser__title {

@@ -110,8 +110,10 @@ html[lang='ka'] .dress-modal__title {
   box-shadow: inset 0 0 0 1px #5a4632;
 }
 
+/* !important: its own bigger grow, distinct from the global button
+   default — needs to win over that rule now that it's !important too */
 .dress-modal__heart:hover {
-  transform: scale(1.1);
+  transform: scale(1.1) !important;
 }
 
 .dress-modal__heart:focus-visible {

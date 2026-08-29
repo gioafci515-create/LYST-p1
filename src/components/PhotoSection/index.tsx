@@ -3,11 +3,9 @@ import { useLanguage } from '../../context/LanguageContext';
 import { useInvitation } from '../../context/InvitationContext';
 import { useScrollDrift } from '../../hooks/useScrollDrift';
 import type { WeddingPhoto } from '../../data/wedding';
-import { Decor } from '../Decor';
 import './PhotoSection.css';
 
 interface PhotoSectionProps {
-  index: 1 | 2;
   photo: WeddingPhoto;
   altKey: 'photoAlt1' | 'photoAlt2';
 }
@@ -16,7 +14,7 @@ interface PhotoSectionProps {
  *  included). Entrance: scale reveal. Scroll-linked: the image drifts at
  *  most 6% via native animation-timeline: view() (PhotoSection.css),
  *  with a batched rAF fallback for browsers that lack it. */
-export function PhotoSection({ index, photo, altKey }: PhotoSectionProps) {
+export function PhotoSection({ photo, altKey }: PhotoSectionProps) {
   const { t } = useLanguage();
   const { isOpened } = useInvitation();
   const imgRef = useRef<HTMLImageElement>(null);
@@ -25,7 +23,6 @@ export function PhotoSection({ index, photo, altKey }: PhotoSectionProps) {
 
   return (
     <section className="photo-section section">
-      <Decor variant={index === 1 ? 'photo-1' : 'photo-2'} />
       <div className="section__inner">
         {/* src attaches only after the envelope opens — before that the
             megabyte polaroids would compete with the gate's first paint */}

@@ -42,7 +42,7 @@
    further. Sized from a direct fit test: 320px viewport's max one-line
    size measured 21px, 768px viewport still fits comfortably up to 26px+.
    GEO only, per request — RU/EN keep the shared size. */
-html[lang='ka'] .details-teaser__title {
+html[lang="ka"] .details-teaser__title {
   font-size: clamp(1.25rem, 4.2vw, 1.7rem) !important;
 }
 
@@ -76,7 +76,7 @@ html[lang='ka'] .details-teaser__title {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 200px;
+  min-width: 100px;
   min-height: 48px;
   padding: 0.7rem 1.5rem;
   background: var(--olive);
@@ -93,20 +93,32 @@ html[lang='ka'] .details-teaser__title {
      on the same element is exactly the kind of equal-specificity cascade
      tie that's been unreliable in this build. */
   transition:
+    transform 0.3s ease-in-out,
     background-color 200ms ease,
-    transform 200ms ease,
     box-shadow 200ms ease,
     opacity var(--dur-base) var(--ease-out)
       calc(var(--i, 0) * var(--stagger) + var(--delay, 0ms));
+}
+/* !important on transform: .paper-cta also carries data-reveal="fade",
+   and once settled [data-reveal].is-revealed{transform:none} (animations.css)
+   ties this rule's specificity exactly — same equal-specificity cascade
+   fight hit elsewhere in this build, same fix. */
+@media (hover: hover) and (pointer: fine) {
+  .paper-cta:hover {
+    background: var(--olive-light);
+    box-shadow: 0 3px 9px rgba(26, 31, 20, 0.24);
+    transform: scale(1.06) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paper-cta:hover {
+    transform: scale(1.02) !important;
+  }
 }
 
 /* pushes the button to the bottom of the flex column, under the doves */
 .details-teaser .paper-cta {
   margin-top: auto;
   margin-bottom: 22%;
-}
-
-.paper-cta:hover {
-  background: var(--olive-light);
-  box-shadow: 0 3px 9px rgba(26, 31, 20, 0.24);
 }

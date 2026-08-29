@@ -81,7 +81,6 @@
 
 .modal__close:hover {
   color: var(--text);
-  transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

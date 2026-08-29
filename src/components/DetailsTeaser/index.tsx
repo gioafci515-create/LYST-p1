@@ -1,6 +1,5 @@
 import { useLanguage } from '../../context/LanguageContext';
 import { useInvitation } from '../../context/InvitationContext';
-import { Decor } from '../Decor';
 import './DetailsTeaser.css';
 
 interface DetailsTeaserProps {
@@ -16,7 +15,6 @@ export function DetailsTeaser({ onOpen }: DetailsTeaserProps) {
 
   return (
     <section className="details-teaser section">
-      <Decor variant="details" />
       <div className="section__inner">
         <div className="details-teaser__paper" data-reveal="scale">
           <img

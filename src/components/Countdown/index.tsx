@@ -1,7 +1,6 @@
 import { useCountdown } from '../../hooks/useCountdown';
 import { useLanguage } from '../../context/LanguageContext';
 import { wedding } from '../../data/wedding';
-import { Decor } from '../Decor';
 import { WaxSeal } from '../WaxSeal';
 import './Countdown.css';
 
@@ -24,7 +23,6 @@ export function Countdown() {
 
   return (
     <section className="countdown section">
-      <Decor variant="countdown" />
       <div className="section__inner">
         <div className="countdown__seal-sticky">
           <WaxSeal size={72} reveal scaleFrom={0.86} />

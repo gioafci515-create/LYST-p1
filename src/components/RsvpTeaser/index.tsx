@@ -1,7 +1,6 @@
 import { useLanguage } from '../../context/LanguageContext';
 import { useInvitation } from '../../context/InvitationContext';
 import { wedding } from '../../data/wedding';
-import { Decor } from '../Decor';
 import './RsvpTeaser.css';
 
 interface RsvpTeaserProps {
@@ -19,7 +18,6 @@ export function RsvpTeaser({ hasSubmitted, onOpen }: RsvpTeaserProps) {
 
   return (
     <section className="rsvp-teaser section">
-      <Decor variant="rsvp" />
       <div className="section__inner">
         <div className="rsvp-teaser__paper" data-reveal="scale">
           <img

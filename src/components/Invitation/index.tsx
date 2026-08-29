@@ -24,9 +24,9 @@ export function Invitation() {
   return (
     <main className="invitation">
       <IntroSection />
-      <PhotoSection index={1} photo={wedding.photos.photo1} altKey="photoAlt1" />
+      <PhotoSection photo={wedding.photos.photo1} altKey="photoAlt1" />
       <DetailsTeaser onOpen={() => setOpenModal('details')} />
-      <PhotoSection index={2} photo={wedding.photos.photo2} altKey="photoAlt2" />
+      <PhotoSection photo={wedding.photos.photo2} altKey="photoAlt2" />
       <RsvpTeaser hasSubmitted={hasSubmitted} onOpen={() => setOpenModal('rsvp')} />
       <Countdown />
       <Footer />

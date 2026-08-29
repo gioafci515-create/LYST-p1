@@ -6,7 +6,7 @@
 
 /* the only glow on the page: soft radial behind the seal disc */
 .wax-seal--glow::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -38%;
   left: -38%;
@@ -29,7 +29,7 @@
 
 .wax-seal img {
   position: relative;
-  width: 100%;
+  scale: 1.5;
   height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 4px 10px rgba(4, 6, 3, 0.4));

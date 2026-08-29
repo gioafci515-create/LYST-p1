@@ -56,6 +56,15 @@
   overflow: hidden;
 }
 
+/* GL Erekles Stamba's glyph ink (ჯ, ქ, წ...) dips below what its own
+   line-height box accounts for — measured ~0.22em of real overflow past
+   .line's clipped bottom edge even at line-height 1.4. Padding widens
+   the clip window; the matching negative margin keeps layout unchanged. */
+html[lang='ka'] .line {
+  padding-bottom: 0.3em;
+  margin-bottom: -0.3em;
+}
+
 .line__inner {
   display: block;
   transform: translateY(105%);

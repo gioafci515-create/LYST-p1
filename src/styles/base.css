@@ -65,9 +65,24 @@ a {
   transition: transform 200ms ease, opacity 200ms ease, border-color 200ms ease;
 }
 
-button:hover,
-a:hover {
-  transform: translateY(-2px);
+/* every button/link grows smoothly on hover, pointer devices only —
+   guarded so touch taps never leave a stuck "hovered" state.
+   !important: several buttons (back-to-top, music-toggle) have a one-shot
+   entrance `animation: ... both`, which holds its final keyframe's
+   transform (none) with priority over any plain, non-animated rule
+   regardless of specificity — only !important beats an animation. */
+@media (hover: hover) and (pointer: fine) {
+  button:hover,
+  a:hover {
+    transform: scale(1.05) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button:hover,
+  a:hover {
+    transform: scale(1.02) !important;
+  }
 }
 
 button:active,

@@ -6,11 +6,15 @@
   line-height: 1.15;
 }
 
-/* Georgian display text uses the harvested reference face */
+/* Georgian display text uses the harvested reference face. Its glyphs
+   sit deeper below the baseline than Cormorant's — 1.15 line-height
+   (fine for Latin/Cyrillic) clips descenders through the .line mask's
+   overflow:hidden, so Georgian gets more room. */
 html[lang='ka'] .display-names,
 html[lang='ka'] .section-heading {
   font-family: var(--font-geo-display);
   font-weight: 400; /* single-weight face */
+  line-height: 1.4;
 }
 
 .script-accent {
@@ -40,6 +44,7 @@ html[lang='ka'] .section-heading {
 html[lang='ka'] .eyebrow:not(.eyebrow--latin) {
   font-family: var(--font-geo-display);
   font-weight: 400;
+  line-height: 1.5;
 }
 
 /* Georgian has no uppercase — apply only to Latin labels via this class */

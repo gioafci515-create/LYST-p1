@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useInvitation } from '../../context/InvitationContext';
 import { wedding } from '../../data/wedding';
-import { Decor } from '../Decor';
 import './IntroSection.css';
 
 /** The couple's names inside the scalloped floral frame — the site's
@@ -39,7 +38,6 @@ export function IntroSection() {
 
   return (
     <section className="intro section" ref={sectionRef} data-reveal-manual>
-      <Decor variant="intro" />
       <div className="section__inner">
         <div className="intro__frame">
           <img

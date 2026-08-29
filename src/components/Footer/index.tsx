@@ -1,6 +1,5 @@
 import { useLanguage } from '../../context/LanguageContext';
 import { wedding } from '../../data/wedding';
-import { Decor } from '../Decor';
 import './Footer.css';
 
 /** Reveal: withLove fade → names mask (+200ms). (The storyboard's third
@@ -11,7 +10,6 @@ export function Footer() {
 
   return (
     <footer className="footer">
-      <Decor variant="footer" />
       <div className="footer__inner">
         <p className="eyebrow footer__love" data-reveal="fade">
           {t('withLove')}

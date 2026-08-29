@@ -59,8 +59,8 @@
   margin-bottom: 1rem;
 }
 
-html[lang='ru'] .intro__title,
-html[lang='en'] .intro__title {
+html[lang="ru"] .intro__title,
+html[lang="en"] .intro__title {
   font-family: var(--font-display);
 }
 
@@ -71,13 +71,21 @@ html[lang='en'] .intro__title {
   letter-spacing: 0.02em;
   line-height: 1.15;
   color: var(--paper-ink);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 0.2rem; /* lifts the names off the gap baseline */
 }
 
-html[lang='ru'] .intro__names,
-html[lang='en'] .intro__names {
+html[lang="ru"] .intro__names,
+html[lang="en"] .intro__names {
   font-family: var(--font-display);
   font-weight: 300;
+}
+
+/* GL Erekles Stamba's descenders sit deeper than 1.15 line-height
+   allows for, so the mask's overflow:hidden clips the bottom of the
+   names — same fix as .section-heading. */
+html[lang="ka"] .intro__names {
+  line-height: 1.4;
 }
 
 .intro__amp {

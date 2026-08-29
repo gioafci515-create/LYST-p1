@@ -1,8 +1,8 @@
-import { useScrollReveal } from '../../hooks/useScrollReveal';
-import { useLanguage } from '../../context/LanguageContext';
-import { useInvitation } from '../../context/InvitationContext';
-import { Decor } from '../Decor';
-import './DetailsTeaser.css';
+import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { useLanguage } from "../../context/LanguageContext";
+import { useInvitation } from "../../context/InvitationContext";
+import { Decor } from "../Decor";
+import "./DetailsTeaser.css";
 
 interface DetailsTeaserProps {
   onOpen: () => void;
@@ -18,20 +18,25 @@ export function DetailsTeaser({ onOpen }: DetailsTeaserProps) {
     <section className="details-teaser section" ref={ref}>
       <Decor variant="details" />
       <div className="section__inner">
-        <div className="details-teaser__paper reveal" style={{ ['--i' as string]: 0 }}>
+        <div
+          className="details-teaser__paper reveal"
+          style={{ ["--i" as string]: 0 }}
+        >
           <img
-            src={isOpened ? 'assets/flower-paper.png' : undefined}
-            width={820}
-            height={846}
+            src={isOpened ? "assets/flower-paper.png" : undefined}
+            width={830}
+            height={856}
             alt=""
             loading="lazy"
             decoding="async"
             aria-hidden="true"
           />
           <div className="details-teaser__content">
-            <h2 className="section-heading details-teaser__title">{t('detailsTitle')}</h2>
+            <h2 className="section-heading details-teaser__title">
+              {t("detailsTitle")}
+            </h2>
             <button type="button" className="paper-cta" onClick={onOpen}>
-              {t('detailsCta')}
+              {t("detailsCta")}
             </button>
           </div>
         </div>

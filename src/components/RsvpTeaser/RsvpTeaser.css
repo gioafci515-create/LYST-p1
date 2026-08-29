@@ -1,5 +1,9 @@
 .rsvp-teaser {
   text-align: center;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .rsvp-teaser__paper {
@@ -21,7 +25,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 55px;
+
   /* square paper sheet: generous even margins */
   padding: 20% 15%;
   color: var(--paper-ink);
@@ -29,25 +34,25 @@
 
 .rsvp-teaser__title {
   color: var(--paper-ink);
-  font-size: clamp(1.05rem, 4.6vw, 1.55rem);
+  font-size: 10px;
   line-height: 1.2;
   margin-bottom: 0.4rem;
 }
 
 .rsvp-teaser__prompt {
-  font-size: clamp(0.72rem, 3vw, 0.9rem);
+  font-size: 18px;
   line-height: 1.55;
   color: rgba(26, 31, 20, 0.75);
   max-width: 20rem;
 }
 
 .rsvp-teaser__deadline {
-  font-size: clamp(0.68rem, 2.6vw, 0.78rem);
+  font-size: 10;
   letter-spacing: 0.12em;
   color: rgba(26, 31, 20, 0.6);
   margin-bottom: 0.5rem;
 }
 
 .rsvp-teaser .paper-cta {
-  font-size: clamp(0.72rem, 3vw, 0.82rem);
+  font-size: 25px;
 }

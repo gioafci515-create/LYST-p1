@@ -35,6 +35,17 @@
   font-size: clamp(1.3rem, 5vw, 1.9rem);
 }
 
+/* .section-heading (typography.css, shared by every card title) was
+   still winning this element's font-size even with a higher-specificity
+   override here — !important forces it, since this is a single narrowly
+   -scoped, intentional exception, not a specificity fight worth chasing
+   further. Sized from a direct fit test: 320px viewport's max one-line
+   size measured 21px, 768px viewport still fits comfortably up to 26px+.
+   GEO only, per request — RU/EN keep the shared size. */
+html[lang='ka'] .details-teaser__title {
+  font-size: clamp(1.25rem, 4.2vw, 1.7rem) !important;
+}
+
 /* shared quiet underlined ink link — every card using it must set its
    own margin-top/bottom; do not add layout rules here, only typography */
 .paper-cta {

@@ -27,11 +27,28 @@ async function assertNoHorizontalOverflow(page: Page, context: string) {
 for (const vp of viewports) {
   for (const lang of langs) {
     test(`${vp.name}px ${lang}: full guest flow`, async ({ page }) => {
+      // @vercel/analytics and @vercel/speed-insights fetch
+      // /_vercel/insights/script.js and /_vercel/speed-insights/script.js,
+      // which only exist on a real Vercel deployment. Locally (vite
+      // preview/dev) they 404 — expected here, harmless in production.
+      const KNOWN_LOCAL_404S = ['/_vercel/insights/', '/_vercel/speed-insights/'];
       const errors: string[] = [];
+      // The browser's console text for a failed resource load is a generic
+      // "Failed to load resource: ... 404" with no URL in it — can't be
+      // matched against KNOWN_LOCAL_404S. The response listener below has
+      // the real URL and is the sole source of truth for network failures;
+      // this handler only needs to catch genuine JS errors/rejections.
       page.on('console', (msg) => {
-        if (msg.type() === 'error') errors.push(msg.text());
+        if (msg.type() !== 'error') return;
+        const text = msg.text();
+        if (text.startsWith('Failed to load resource')) return;
+        errors.push(text);
       });
       page.on('pageerror', (err) => errors.push(`pageerror: ${err.message}`));
+      page.on('response', (res) => {
+        if (res.status() === 404 && KNOWN_LOCAL_404S.some((p) => res.url().includes(p))) return;
+        if (res.status() >= 400) errors.push(`http ${res.status()}: ${res.url()}`);
+      });
 
       await page.addInitScript((l) => {
         localStorage.setItem('invite-lang', l);

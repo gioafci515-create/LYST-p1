@@ -120,8 +120,8 @@
     opacity: 1;
   }
 
-  .envelope-trigger:hover .envelope__seal {
-    transform: translate(-50%, -32%) scale(1.06);
+  .envelope-trigger:hover .envelope__seal-inner {
+    transform: scale(1.06);
   }
 }
 
@@ -212,6 +212,12 @@
 
 /* ————— wax seal on the flap point ————— */
 
+/* filter and the animated scale live on separate nodes — iOS Safari
+   rasterizes drop-shadow against the layer's rectangular bounds (not the
+   alpha silhouette) when filter and an animating transform share one
+   node, which shows up as an intermittent boxy shadow. This wrapper's
+   own transform is a fixed, non-transitioning centering offset; only
+   .envelope__seal-inner ever animates. */
 .envelope__seal {
   position: absolute;
   top: 56%;
@@ -220,8 +226,13 @@
   aspect-ratio: 300 / 450; /* ribbon tails hang below the disc */
   transform: translate(-50%, -32%);
   z-index: 5;
-  transition: transform 200ms ease;
   filter: drop-shadow(0 5px 10px rgba(4, 6, 3, 0.45));
+}
+
+.envelope__seal-inner {
+  position: absolute;
+  inset: 0;
+  transition: transform 200ms ease;
 }
 
 .envelope__seal-half img {
@@ -232,8 +243,8 @@
   object-fit: contain;
 }
 
-.gate--opening .envelope__seal {
-  transform: translate(-50%, -32%) scale(1.15);
+.gate--opening .envelope__seal-inner {
+  transform: scale(1.15);
 }
 
 .envelope__seal-half {
@@ -289,7 +300,7 @@
 
   .envelope__closed,
   .envelope__opened,
-  .envelope__seal,
+  .envelope__seal-inner,
   .envelope__seal-half {
     transition: none;
   }

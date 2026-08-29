@@ -1,7 +1,21 @@
+/* Filter (on the img) and the reveal engine's scale-in transform (on
+   .wax-seal__scale) are kept on separate, non-overlapping nodes on
+   purpose. iOS Safari rasterizes filter/gradients against the layer's
+   rectangular bounds instead of the true alpha silhouette when they
+   share a node with an actively-animating transform — shows up as a
+   boxy shadow or a squared-off glow instead of a soft contour-following
+   one. This wrapper itself never transforms, so it and its glow
+   ::before are unaffected regardless of what the inner scale is doing. */
 .wax-seal {
   position: relative;
   display: inline-block;
   flex-shrink: 0;
+}
+
+.wax-seal__scale {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 /* the only glow on the page: soft radial behind the seal disc */
@@ -18,18 +32,18 @@
 
 /* when this seal opts into the reveal engine, the glow fades up
    alongside the scale-in rather than being present immediately */
-.reveal-ready .wax-seal--glow[data-reveal]::before {
+.reveal-ready .wax-seal--glow:has(> [data-reveal])::before {
   opacity: 0;
   transition: opacity var(--dur-slow) var(--ease-out);
 }
 
-.wax-seal--glow[data-reveal].is-revealed::before {
+.wax-seal--glow:has(> [data-reveal].is-revealed)::before {
   opacity: 1;
 }
 
 .wax-seal img {
   position: relative;
-  scale: 1.5;
+  width: 100%;
   height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 4px 10px rgba(4, 6, 3, 0.4));

@@ -71,11 +71,13 @@ export function InvitationGate({ onOpenAudio, onOpened }: InvitationGateProps) {
             aria-hidden="true"
           />
           <span className="envelope__seal">
-            <span className="envelope__seal-half envelope__seal-half--left">
-              <img src="assets/wax-seal.png" alt="" aria-hidden="true" />
-            </span>
-            <span className="envelope__seal-half envelope__seal-half--right">
-              <img src="assets/wax-seal.png" alt="" aria-hidden="true" />
+            <span className="envelope__seal-inner">
+              <span className="envelope__seal-half envelope__seal-half--left">
+                <img src="assets/wax-seal.png" alt="" aria-hidden="true" />
+              </span>
+              <span className="envelope__seal-half envelope__seal-half--right">
+                <img src="assets/wax-seal.png" alt="" aria-hidden="true" />
+              </span>
             </span>
           </span>
         </button>

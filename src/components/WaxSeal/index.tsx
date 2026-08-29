@@ -25,24 +25,24 @@ export function WaxSeal({
   revealDelay,
 }: WaxSealProps) {
   const style: CSSProperties = { width: size, height: size * 1.5 };
-  if (reveal) (style as Record<string, string>)['--scale-from'] = String(scaleFrom);
 
   return (
-    <span
-      className={`wax-seal${glow ? ' wax-seal--glow' : ''}`}
-      style={style}
-      aria-hidden="true"
-      data-reveal={reveal ? 'scale' : undefined}
-      data-reveal-delay={reveal ? revealDelay : undefined}
-    >
-      <img
-        src="assets/wax-seal.png"
-        width={300}
-        height={450}
-        alt=""
-        loading="lazy"
-        decoding="async"
-      />
+    <span className={`wax-seal${glow ? ' wax-seal--glow' : ''}`} style={style} aria-hidden="true">
+      <span
+        className="wax-seal__scale"
+        style={reveal ? ({ '--scale-from': String(scaleFrom) } as CSSProperties) : undefined}
+        data-reveal={reveal ? 'scale' : undefined}
+        data-reveal-delay={reveal ? revealDelay : undefined}
+      >
+        <img
+          src="assets/wax-seal.png"
+          width={300}
+          height={450}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+      </span>
     </span>
   );
 }

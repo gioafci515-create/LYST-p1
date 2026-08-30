@@ -26,6 +26,20 @@ async function compressImage(file: File): Promise<Blob> {
   });
 }
 
+/** iPhones save camera-roll photos as HEIC by default, which some
+ *  browsers' createImageBitmap/canvas pipeline can't decode — that
+ *  would otherwise silently drop the guest's photo entirely. If
+ *  compression fails for any reason, upload the original file
+ *  untouched rather than losing it. */
+async function getUploadBlob(file: File): Promise<Blob> {
+  try {
+    return await compressImage(file);
+  } catch (err) {
+    console.error('[photos] compression failed, uploading original:', file.name, err);
+    return file;
+  }
+}
+
 export interface UploadResult {
   file: string;
   ok: boolean;
@@ -46,7 +60,7 @@ export async function uploadPhotos(files: File[], guestName: string): Promise<Up
   const results: UploadResult[] = [];
   for (const file of files) {
     try {
-      const compressed = await compressImage(file);
+      const compressed = await getUploadBlob(file);
       const ext = compressed.type === 'image/jpeg' ? 'jpg' : (file.name.split('.').pop() ?? 'jpg');
       const path = `${crypto.randomUUID()}.${ext}`;
 

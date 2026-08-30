@@ -5,6 +5,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import type { Lang } from '../../data/translations';
 import { Chart } from './Chart';
 import { GuestTable, type RsvpRow } from './GuestTable';
+import { PhotoGallery } from './PhotoGallery';
 import './Admin.css';
 
 type LoadState = 'loading' | 'ready' | 'error';
@@ -330,6 +331,8 @@ function Dashboard({ s, lang, supabase, onSignOut }: DashboardProps) {
           </section>
 
           <GuestTable rows={rows} lang={lang} loading={state === 'loading'} />
+
+          <PhotoGallery supabase={supabase} lang={lang} />
         </>
       )}
     </main>

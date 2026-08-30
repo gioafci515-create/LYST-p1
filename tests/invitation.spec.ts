@@ -95,6 +95,7 @@ for (const vp of viewports) {
         '.details-teaser',
         '.photo-section >> nth=1',
         '.rsvp-teaser',
+        '.photo-teaser',
         '.countdown',
         '.footer',
       ];
@@ -192,6 +193,29 @@ for (const vp of viewports) {
       await page.click('.rsvp-form__submit');
       await page.waitForSelector('.rsvp-success', { timeout: 10_000 });
       await shot(page, vp.name, lang, '10-rsvp-success');
+      await page.keyboard.press('Escape');
+      await page.waitForTimeout(250);
+
+      // photo upload: empty submit → error, one file chosen → success
+      // (mock transport in test build, same as RSVP)
+      const photoBtn = page.locator('.photo-teaser .paper-cta');
+      await photoBtn.scrollIntoViewIfNeeded();
+      await photoBtn.click();
+      await page.waitForSelector('.photo-upload-form');
+      await page.waitForTimeout(450);
+      await shot(page, vp.name, lang, '11-photo-modal');
+      await assertNoHorizontalOverflow(page, 'photo upload modal');
+
+      await page.click('.photo-upload-form__submit');
+      await page.waitForSelector('.photo-upload-form__error');
+
+      await page.setInputFiles(
+        '#photo-upload-input',
+        path.join('public', 'assets', 'wax-seal.png'),
+      );
+      await page.click('.photo-upload-form__submit');
+      await page.waitForSelector('.photo-upload-success', { timeout: 10_000 });
+      await shot(page, vp.name, lang, '12-photo-success');
       await page.keyboard.press('Escape');
       await page.waitForTimeout(250);
 

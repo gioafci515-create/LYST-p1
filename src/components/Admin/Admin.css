@@ -335,6 +335,60 @@ html[lang='ka'] .admin__card-label {
   color: var(--text-muted);
 }
 
+.admin__photos {
+  margin-top: 2.5rem;
+}
+
+.admin__photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.9rem;
+}
+
+.admin__photo-card {
+  position: relative;
+  border: 1px solid var(--line);
+  background: var(--forest);
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.admin__photo-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.admin__photo-card figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0.6rem;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.admin__photo-card figcaption span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin__photo-delete {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  line-height: 1;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+.admin__photo-delete:hover {
+  color: var(--text);
+}
+
 .admin__error {
   border: 1px solid var(--line);
   background: var(--forest);

@@ -110,6 +110,43 @@ export const translations = {
     en: "Men's outfit inspiration in the wedding palette",
   },
   zoomHint: { ka: 'გაადიდეთ', ru: 'Увеличить', en: 'Zoom' },
+  photoTitle: { ka: 'გაგვიზიარეთ კადრები', ru: 'Поделитесь кадрами', en: 'Share your photos' },
+  photoPrompt: {
+    ka: 'გადაუღეთ სურათები დღესასწაულს და ატვირთეთ აქ — ჩვენთვის ისინი ძვირფასი იქნება',
+    ru: 'Снимайте моменты праздника и загружайте их сюда — для нас это будет бесценно',
+    en: 'Snap moments from the celebration and upload them here — they mean the world to us',
+  },
+  photoCta: { ka: 'სურათების ატვირთვა', ru: 'Загрузить фото', en: 'Upload photos' },
+  photoModalTitle: { ka: 'სურათების ატვირთვა', ru: 'Загрузка фото', en: 'Upload photos' },
+  photoNameLabel: { ka: 'თქვენი სახელი (არასავალდებულო)', ru: 'Ваше имя (необязательно)', en: 'Your name (optional)' },
+  photoChoose: { ka: 'აირჩიეთ სურათები', ru: 'Выбрать фото', en: 'Choose photos' },
+  photoChosenCount: {
+    ka: 'არჩეულია {n} სურათი',
+    ru: 'Выбрано файлов: {n}',
+    en: '{n} photo(s) selected',
+  },
+  photoUploading: { ka: 'იტვირთება…', ru: 'Загружается…', en: 'Uploading…' },
+  photoSuccess: {
+    ka: 'მადლობა! თქვენი სურათები ატვირთულია',
+    ru: 'Спасибо! Ваши фото загружены',
+    en: 'Thank you! Your photos are uploaded',
+  },
+  photoUploadMore: { ka: 'კიდევ ატვირთვა', ru: 'Загрузить ещё', en: 'Upload more' },
+  photoErrNone: {
+    ka: 'გთხოვთ, ჯერ აირჩიოთ სურათი',
+    ru: 'Пожалуйста, сначала выберите фото',
+    en: 'Please choose a photo first',
+  },
+  photoErrSome: {
+    ka: 'ზოგიერთი სურათი ვერ აიტვირთა — სცადეთ ხელახლა',
+    ru: 'Некоторые фото не загрузились — попробуйте ещё раз',
+    en: "Some photos didn't upload — try again",
+  },
+  photoErrAll: {
+    ka: 'ატვირთვა ვერ მოხერხდა. სცადეთ ხელახლა',
+    ru: 'Не удалось загрузить. Попробуйте ещё раз',
+    en: "Couldn't upload. Please try again",
+  },
 } satisfies Record<string, Localized>;
 
 export type TranslationKey = keyof typeof translations;

@@ -1,0 +1,134 @@
+.photo-upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.photo-upload-form__title {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  padding-inline: 2rem; /* clear the × control */
+}
+
+.photo-upload-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.photo-upload-form__label {
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  color: var(--sage);
+  overflow-wrap: anywhere;
+}
+
+.photo-upload-form input[type='text'] {
+  width: 100%;
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 0.7rem 0.85rem;
+  font-size: 16px; /* prevents iOS zoom-on-focus */
+  font-weight: 300;
+}
+
+/* native file input is visually hidden — the label is the real control,
+   styled like the attendance choice buttons */
+.photo-upload-form__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.photo-upload-form__choose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--text);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.photo-upload-form__input:focus-visible + .photo-upload-form__choose {
+  outline: 2px solid var(--olive-light);
+  outline-offset: 2px;
+}
+
+.photo-upload-form__count {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.photo-upload-form__error {
+  font-size: 0.85rem;
+  color: var(--sage);
+  border-left: 2px solid var(--olive-light);
+  padding-left: 0.75rem;
+}
+
+.photo-upload-form__submit {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1rem;
+}
+
+.photo-upload-form__submit:disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+
+.photo-upload-form__submit-seal {
+  position: relative;
+  display: inline-flex;
+}
+
+.photo-upload-form__spinner {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  border-top-color: var(--sage);
+  animation: spin 900ms linear infinite;
+}
+
+.photo-upload-form__submit-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: var(--text);
+}
+
+/* success state */
+
+.photo-upload-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.4rem;
+  padding: 1rem 0;
+}
+
+.photo-upload-success__again {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

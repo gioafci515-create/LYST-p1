@@ -9,13 +9,15 @@ import { DressCodeModal } from '../DressCodeModal';
 import { BackToTop } from '../BackToTop';
 import { RsvpTeaser } from '../RsvpTeaser';
 import { RsvpModal } from '../RsvpModal';
+import { PhotoTeaser } from '../PhotoTeaser';
+import { PhotoUploadModal } from '../PhotoUploadModal';
 import { Countdown } from '../Countdown';
 import { CountdownErrorBoundary } from '../Countdown/ErrorBoundary';
 import { useLanguage } from '../../context/LanguageContext';
 import { Footer } from '../Footer';
 import './Invitation.css';
 
-type OpenModal = 'details' | 'rsvp' | null;
+type OpenModal = 'details' | 'rsvp' | 'photos' | null;
 
 /** STATE 3+: the scrollable invitation and its two overlay modals. */
 export function Invitation() {
@@ -31,6 +33,7 @@ export function Invitation() {
       <DetailsTeaser onOpen={() => setOpenModal('details')} />
       <PhotoSection photo={wedding.photos.photo2} altKey="photoAlt2" />
       <RsvpTeaser hasSubmitted={hasSubmitted} onOpen={() => setOpenModal('rsvp')} />
+      <PhotoTeaser onOpen={() => setOpenModal('photos')} />
       <CountdownErrorBoundary
         fallback={
           <p className="section date-line" style={{ textAlign: 'center' }}>
@@ -58,6 +61,7 @@ export function Invitation() {
           onSubmitted={() => setHasSubmitted(true)}
         />
       )}
+      {openModal === 'photos' && <PhotoUploadModal onClose={() => setOpenModal(null)} />}
     </main>
   );
 }

@@ -92,8 +92,10 @@ for (const vp of viewports) {
       const sections = [
         '.intro',
         '.photo-section >> nth=0',
+        '.letter',
         '.details-teaser',
         '.photo-section >> nth=1',
+        '.event-notice',
         '.rsvp-teaser',
         '.photo-teaser',
         '.countdown',

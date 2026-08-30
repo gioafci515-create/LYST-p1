@@ -3,10 +3,12 @@ import { readStoredRsvp } from '../../lib/rsvp';
 import { wedding } from '../../data/wedding';
 import { IntroSection } from '../IntroSection';
 import { PhotoSection } from '../PhotoSection';
+import { LetterSection } from '../LetterSection';
 import { DetailsTeaser } from '../DetailsTeaser';
 import { DetailsModal } from '../DetailsModal';
 import { DressCodeModal } from '../DressCodeModal';
 import { BackToTop } from '../BackToTop';
+import { EventNotice } from '../EventNotice';
 import { RsvpTeaser } from '../RsvpTeaser';
 import { RsvpModal } from '../RsvpModal';
 import { PhotoTeaser } from '../PhotoTeaser';
@@ -30,8 +32,10 @@ export function Invitation() {
     <main className="invitation">
       <IntroSection />
       <PhotoSection photo={wedding.photos.photo1} altKey="photoAlt1" />
+      <LetterSection />
       <DetailsTeaser onOpen={() => setOpenModal('details')} />
       <PhotoSection photo={wedding.photos.photo2} altKey="photoAlt2" />
+      <EventNotice />
       <RsvpTeaser hasSubmitted={hasSubmitted} onOpen={() => setOpenModal('rsvp')} />
       <PhotoTeaser onOpen={() => setOpenModal('photos')} />
       <CountdownErrorBoundary

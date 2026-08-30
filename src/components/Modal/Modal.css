@@ -25,7 +25,23 @@
   }
 }
 
+/* every modal ("windows" — RSVP, photo upload, details, dress code) is
+   cherry, not olive. Reassigning the shared aliases here means every
+   nested component (form fields, buttons, hairlines, wax-seal glow)
+   automatically picks up cherry instead of olive, with no changes
+   needed in RsvpModal.css / PhotoUploadModal.css / DetailsModal.css /
+   DressCodeModal.css — they all just reference var(--olive), var(--line),
+   etc., which now resolve differently inside .modal__panel. */
 .modal__panel {
+  --surface: var(--cherry-void);
+  --surface-raised: var(--cherry-raised);
+  --olive: var(--cherry);
+  --olive-light: var(--cherry-light);
+  --olive-glow: var(--cherry-glow);
+  --sage: var(--cherry-rose);
+  --sage-dim: var(--cherry-rose-dim);
+  --line: var(--cherry-line);
+
   position: relative;
   width: min(520px, calc(100vw - 2rem));
   margin-inline: auto;

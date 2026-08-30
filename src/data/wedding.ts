@@ -55,8 +55,6 @@ export const wedding = {
     en: 'Please note — white, and any shade of it, is not allowed',
   },
   dressCodePalette: [
-    { hex: '#E1C6A9', name: { ka: 'შამპანური', ru: 'Шампань', en: 'Champagne' } },
-    { hex: '#DDBB9F', name: { ka: 'ბეჟი', ru: 'Бежевый', en: 'Beige' } },
     { hex: '#B3B198', name: { ka: 'მოსაზი', ru: 'Шалфей', en: 'Sage' } },
     { hex: '#6F6B46', name: { ka: 'ზეთისხილისფერი', ru: 'Оливковый', en: 'Olive' } },
     { hex: '#957964', name: { ka: 'ტაუპი', ru: 'Таупе', en: 'Taupe' } },

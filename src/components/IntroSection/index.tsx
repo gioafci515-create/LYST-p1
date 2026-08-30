@@ -75,6 +75,18 @@ export function IntroSection() {
             </p>
           </div>
         </div>
+        <div className="intro__quote-frame" data-reveal="fade" data-reveal-delay="900">
+          <img
+            src={isOpened ? 'assets/quote-plaque.png' : undefined}
+            width={1672}
+            height={941}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            aria-hidden="true"
+          />
+          <p className="intro__quote">{t('introQuote')}</p>
+        </div>
       </div>
     </section>
   );

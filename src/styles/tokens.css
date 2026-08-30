@@ -40,6 +40,19 @@
   --surface:        var(--forest);
   --surface-raised: var(--olive-deep);
 
+  /* cherry — modal "windows" only (RSVP, photo upload, details, dress
+     code), scoped via .modal__panel reassigning the aliases above, not
+     used anywhere in the base site palette */
+  --cherry-void:    #1C0B0E;
+  --cherry:         #7A2A38;
+  --cherry-light:   #A8465A;
+  --cherry-glow:    rgba(168, 70, 90, 0.22);
+  --cherry-rose:    #C98A96;
+  --cherry-rose-dim: rgba(201, 138, 150, 0.16);
+  --cherry-line:    rgba(201, 138, 150, 0.28);
+  --cherry-raised:  #331419;
+  --cherry-ink:     #6B1B27; /* dark enough to read as text on cream paper */
+
   /* type — harvested from the reference site; Geo Tabidze is legacy
      (no Unicode Georgian) so GL Erekles Stamba carries the names */
   --font-display: 'Cormorant Garamond', 'Noto Serif Georgian', Georgia, serif;

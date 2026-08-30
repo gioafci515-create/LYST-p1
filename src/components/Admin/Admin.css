@@ -353,7 +353,13 @@ html[lang='ka'] .admin__card-label {
   border-radius: 3px;
 }
 
-.admin__photo-card img {
+.admin__photo-open {
+  display: block;
+  width: 100%;
+  cursor: zoom-in;
+}
+
+.admin__photo-open img {
   display: block;
   width: 100%;
   aspect-ratio: 1;
@@ -387,6 +393,72 @@ html[lang='ka'] .admin__card-label {
 
 .admin__photo-delete:hover {
   color: var(--text);
+}
+
+.admin__lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.admin__lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 7, 4, 0.9);
+}
+
+.admin__lightbox-panel {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  max-width: min(90vw, 720px);
+  max-height: 90svh;
+}
+
+.admin__lightbox-img {
+  display: block;
+  max-width: 100%;
+  max-height: 70svh;
+  width: auto;
+  height: auto;
+  border-radius: 3px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.admin__lightbox-close {
+  position: absolute;
+  top: -2.5rem;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--text);
+}
+
+.admin__lightbox-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.admin__lightbox-name {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.admin__lightbox-error {
+  font-size: 0.8rem;
+  color: var(--sage);
 }
 
 .admin__error {

@@ -109,3 +109,51 @@ html[lang="ka"] .intro__names {
   color: rgba(26, 31, 20, 0.72);
   max-width: 21rem;
 }
+
+/* the quote sits below the whole card, not squeezed inside it — the
+   oval frame is already tightly balanced for eyebrow/title/names/date
+   /body; a big block of new text belongs outside it, with room to
+   breathe, laid over its own floral plaque image. */
+.intro__quote-frame {
+  position: relative;
+  max-width: 700px;
+  margin: clamp(2.5rem, 9vw, 3.5rem) auto 0;
+}
+
+.intro__quote-frame > img {
+  width: 700px;
+  height: auto;
+  display: block;
+}
+
+/* text-wrap:balance keeps the line breaks even on a phone instead of
+   one long line + one short leftover word. padding is a hard 8px floor
+   between the glyphs and the box edge on top of the % inset, so it
+   never gets tighter than that even at the smallest phone width. */
+.intro__quote {
+  position: absolute;
+  inset: 26% 18%;
+  padding: 9px;
+  opacity: 0.95;
+  font-family: var(--font-script);
+  /* sized for the longest translation (Russian), not the shortest —
+     a size that only fits English overflows the plaque for the others */
+  font-size: 19px !important;
+  line-height: 1.3;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--olive);
+  text-wrap: balance;
+  margin-top: 52px; /* lifts the quote off the gap baseline */
+}
+
+/* Great Vibes has no Georgian glyphs at all — it would silently fall
+   back to the browser's generic "cursive" font for Georgian, which is
+   unpredictable and usually not cursive-looking anyway. Georgian
+   keeps the same display serif used everywhere else instead of a
+   cursive that doesn't actually exist for this script. */
+html[lang="ka"] .intro__quote {
+  font-family: var(--font-geo-display);
+  font-size: clamp(0.85rem, 3.6vw, 1.05rem);
+  line-height: 1.55;
+}

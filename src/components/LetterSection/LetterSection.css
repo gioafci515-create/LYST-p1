@@ -1,0 +1,42 @@
+.letter {
+  text-align: center;
+}
+
+.letter__frame {
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.letter__frame > img {
+  width: 400px;
+  height: auto;
+  display: block;
+}
+
+/* text sits on the blank torn-paper area at the top of the envelope
+   art, above the flap/seal — the paper's own top ~55% of the image */
+.letter__text {
+  position: absolute;
+  top: 9%;
+  left: 17%;
+  right: 17%;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(0.95rem, 3.6vw, 1.1rem);
+  line-height: 1.7;
+  color: var(--olive);
+  text-wrap: balance;
+  margin-top: 20px;
+  margin-left: 15px;
+  gap: 2px;
+  opacity: 95%;
+}
+
+html[lang="ka"] .letter__text {
+  font-family: var(--font-geo-display);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.85;
+}

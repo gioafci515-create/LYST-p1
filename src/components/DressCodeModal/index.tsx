@@ -13,7 +13,7 @@ export function DressCodeModal({ onClose }: { onClose: () => void }) {
   const [selected, setSelected] = useState<DressSwatch | null>(null);
 
   return (
-    <Modal titleId="dresscode-title" onClose={onClose} panelClassName="modal__panel--paper">
+    <Modal titleId="dresscode-title" onClose={onClose}>
       <div className="dress-modal">
         <img
           className="dress-modal__branch"

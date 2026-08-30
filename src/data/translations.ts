@@ -9,6 +9,21 @@ export const translations = {
   },
   inviteEyebrow: { ka: 'გიწვევთ', ru: 'Приглашаем вас', en: 'We invite you' },
   inviteTitle: { ka: 'ჩვენს ქორწილში', ru: 'на нашу свадьбу', en: 'to our wedding' },
+  introQuote: {
+    ka: 'ზოგიერთი დღე ცხოვრებაში ერთხელ დგება — დღე, როცა ორი ადამიანის ისტორია ახალ, ლამაზ დასაწყისს იძენს.',
+    ru: 'Есть дни, которые случаются раз в жизни — день, когда история двух людей обретает новое, прекрасное начало.',
+    en: "Some days come once in a lifetime — the day two people's story finds a beautiful new beginning.",
+  },
+  letterText: {
+    ka: 'სიხარულით გეპატიჟებით ჩვენი სიყვარულის ერთ-ერთ ყველაზე მნიშვნელოვანი დღის გასაზიარებლად. თქვენი დასწრება ამ დღეს კიდევ უფრო განსაკუთრებულს გახდის.',
+    ru: 'С радостью приглашаем вас разделить с нами один из самых значимых дней нашей любви. Ваше присутствие сделает этот день ещё более особенным.',
+    en: 'We joyfully invite you to share in one of the most meaningful days of our love. Your presence will make this day even more special.',
+  },
+  eventNotice: {
+    ka: 'თავაზიანად გაცნობებთ, რომ ღონისძიება განკუთვნილია მხოლოდ სრულწლოვანი სტუმრებისთვის.',
+    ru: 'Уведомляем вас, что мероприятие предназначено только для совершеннолетних гостей.',
+    en: 'Please note that this event is reserved for adult guests only.',
+  },
   inviteBody: {
     ka: 'ბედნიერები ვიქნებით, თუ ამ განსაკუთრებულ დღეს ჩვენთან ერთად გაატარებთ',
     ru: 'Будем счастливы, если вы разделите с нами этот особенный день',

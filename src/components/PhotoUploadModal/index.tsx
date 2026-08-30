@@ -18,10 +18,17 @@ export function PhotoUploadModal({ onClose }: PhotoUploadModalProps) {
   const [files, setFiles] = useState<File[]>([]);
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState<ErrorKey | null>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const cameraInputRef = useRef<HTMLInputElement>(null);
+  const galleryInputRef = useRef<HTMLInputElement>(null);
 
-  const handleFiles = (event: ChangeEvent<HTMLInputElement>) => {
-    setFiles(Array.from(event.target.files ?? []));
+  /** Appends rather than replaces — tapping "take a photo" a few times in
+   *  a row, or taking one then also picking from the gallery, should
+   *  build up one batch, not throw away what's already chosen. Clearing
+   *  the input's own value lets the exact same shot be captured again. */
+  const appendFiles = (event: ChangeEvent<HTMLInputElement>) => {
+    const picked = Array.from(event.target.files ?? []);
+    if (picked.length > 0) setFiles((prev) => [...prev, ...picked]);
+    event.target.value = '';
     setError(null);
   };
 
@@ -89,19 +96,36 @@ export function PhotoUploadModal({ onClose }: PhotoUploadModalProps) {
             />
           </label>
 
-          <input
-            ref={inputRef}
-            type="file"
-            accept="image/*"
-            capture="environment"
-            multiple
-            onChange={handleFiles}
-            className="photo-upload-form__input"
-            id="photo-upload-input"
-          />
-          <label htmlFor="photo-upload-input" className="photo-upload-form__choose">
-            {t('photoChoose')}
-          </label>
+          <div className="photo-upload-form__choices">
+            <div className="photo-upload-form__choice-item">
+              <input
+                ref={cameraInputRef}
+                type="file"
+                accept="image/*"
+                capture="environment"
+                onChange={appendFiles}
+                className="photo-upload-form__input"
+                id="photo-upload-camera"
+              />
+              <label htmlFor="photo-upload-camera" className="photo-upload-form__choose">
+                {t('photoTakePhoto')}
+              </label>
+            </div>
+            <div className="photo-upload-form__choice-item">
+              <input
+                ref={galleryInputRef}
+                type="file"
+                accept="image/*"
+                multiple
+                onChange={appendFiles}
+                className="photo-upload-form__input"
+                id="photo-upload-gallery"
+              />
+              <label htmlFor="photo-upload-gallery" className="photo-upload-form__choose">
+                {t('photoFromGallery')}
+              </label>
+            </div>
+          </div>
 
           {files.length > 0 && (
             <p className="photo-upload-form__count" aria-live="polite">

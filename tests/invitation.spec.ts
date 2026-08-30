@@ -210,7 +210,7 @@ for (const vp of viewports) {
       await page.waitForSelector('.photo-upload-form__error');
 
       await page.setInputFiles(
-        '#photo-upload-input',
+        '#photo-upload-gallery',
         path.join('public', 'assets', 'wax-seal.png'),
       );
       await page.click('.photo-upload-form__submit');

@@ -1,5 +1,30 @@
 .photo-teaser {
   text-align: center;
+  overflow: hidden;
+}
+
+/* z-index 0, under .section__inner's z-index 1 — sits behind the text,
+   which stays fully legible on top regardless of overlap. contain, not
+   cover: on wide viewports this section is much wider than it is tall
+   relative to the image's own aspect ratio — cover crops the top/bottom
+   hard there. contain always shows the whole image, no crop, ever. */
+.photo-teaser__pile {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* !important: [data-reveal].is-revealed (animations.css) ties this
+   rule's specificity exactly (attribute+class vs class+class) — same
+   cascade fight hit elsewhere in this build, same fix. */
+.photo-teaser__pile[data-reveal].is-revealed {
+  opacity: 0.22 !important;
 }
 
 .photo-teaser .section__inner {

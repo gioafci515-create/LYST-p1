@@ -1,0 +1,114 @@
+{
+  "version": "1.0",
+  "timestamp": "2026-08-29T02:17:52.068Z",
+  "source": "auto-compact",
+  "partial": false,
+  "phase": null,
+  "phase_name": null,
+  "phase_dir": null,
+  "plan": null,
+  "task": null,
+  "total_tasks": null,
+  "status": "auto-checkpoint",
+  "completed_tasks": [],
+  "remaining_tasks": [],
+  "blockers": [],
+  "human_actions_pending": [],
+  "decisions": [],
+  "uncommitted_files": [
+    {
+      "status": "M",
+      "path": "index.html"
+    },
+    {
+      "status": "M",
+      "path": "src/App.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/Countdown/Countdown.css"
+    },
+    {
+      "status": "M",
+      "path": "src/components/Countdown/index.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/Decor/Decor.css"
+    },
+    {
+      "status": "M",
+      "path": "src/components/Decor/index.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/DetailsModal/DetailsModal.css"
+    },
+    {
+      "status": "M",
+      "path": "src/components/DetailsTeaser/DetailsTeaser.css"
+    },
+    {
+      "status": "M",
+      "path": "src/components/DetailsTeaser/index.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/Footer/index.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/IntroSection/index.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/PhotoSection/PhotoSection.css"
+    },
+    {
+      "status": "M",
+      "path": "src/components/PhotoSection/index.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/RsvpTeaser/index.tsx"
+    },
+    {
+      "status": "M",
+      "path": "src/components/WaxSeal/WaxSeal.css"
+    },
+    {
+      "status": "M",
+      "path": "src/components/WaxSeal/index.tsx"
+    },
+    {
+      "status": "D",
+      "path": "src/hooks/useScrollReveal.ts"
+    },
+    {
+      "status": "M",
+      "path": "src/styles/animations.css"
+    },
+    {
+      "status": "M",
+      "path": "src/styles/tokens.css"
+    },
+    {
+      "status": "M",
+      "path": "tests/invitation.spec.ts"
+    },
+    {
+      "status": "??",
+      "path": "src/components/ScrollProgress/"
+    },
+    {
+      "status": "??",
+      "path": "src/hooks/useRevealEngine.ts"
+    },
+    {
+      "status": "??",
+      "path": "src/hooks/useScrollDrift.ts"
+    }
+  ],
+  "next_action": null,
+  "context_notes": "Recent commits:\n6134c36 Real button styling for the two teaser links, bigger intro eyebrow, tighter intro balance\n2522adf GEO-only fix: shrink details-teaser title so it fits one line\n1162ebd Revert experimental debris accidentally swept into the previous commit\n5671693 Intro card: optical-balance correction for the frame's real crown asymmetry\n593f697 Rebalance intro decor — was doubling up on the card's own left-leaning crown"
+}

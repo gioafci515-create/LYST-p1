@@ -119,7 +119,8 @@ export const translations = {
   photoCta: { ka: 'სურათების ატვირთვა', ru: 'Загрузить фото', en: 'Upload photos' },
   photoModalTitle: { ka: 'სურათების ატვირთვა', ru: 'Загрузка фото', en: 'Upload photos' },
   photoNameLabel: { ka: 'თქვენი სახელი (არასავალდებულო)', ru: 'Ваше имя (необязательно)', en: 'Your name (optional)' },
-  photoChoose: { ka: 'აირჩიეთ სურათები', ru: 'Выбрать фото', en: 'Choose photos' },
+  photoTakePhoto: { ka: 'გადაღება', ru: 'Сделать фото', en: 'Take a photo' },
+  photoFromGallery: { ka: 'გალერეიდან', ru: 'Из галереи', en: 'From gallery' },
   photoChosenCount: {
     ka: 'არჩეულია {n} სურათი',
     ru: 'Выбрано файлов: {n}',

@@ -6,13 +6,24 @@ interface PhotoTeaserProps {
 }
 
 /** Plain dark section (no paper cutout) between RSVP and the countdown —
- *  asks guests to upload photos taken during the celebration.
+ *  asks guests to upload photos taken during the celebration. The
+ *  scattered-polaroid pile behind the text is one pre-composed image
+ *  (provided), not separately positioned photos.
  *  Reveal: heading mask → prompt rise (+160ms) → button fade (+320ms). */
 export function PhotoTeaser({ onOpen }: PhotoTeaserProps) {
   const { t } = useLanguage();
 
   return (
     <section className="photo-teaser section">
+      <img
+        src="assets/photo-pile.png"
+        className="photo-teaser__pile"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+        data-reveal="fade"
+      />
       <div className="section__inner">
         <h2 className="section-heading photo-teaser__title" data-reveal="mask">
           <span className="line">

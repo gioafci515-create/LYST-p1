@@ -20,9 +20,9 @@ export const translations = {
     en: 'We joyfully invite you to share in one of the most meaningful days of our love. Your presence will make this day even more special.',
   },
   eventNotice: {
-    ka: 'თავაზიანად გაცნობებთ, რომ ღონისძიება განკუთვნილია მხოლოდ სრულწლოვანი სტუმრებისთვის.',
-    ru: 'Уведомляем вас, что мероприятие предназначено только для совершеннолетних гостей.',
-    en: 'Please note that this event is reserved for adult guests only.',
+    ka: 'ქორწილში გეპატიჟებით მხოლოდ ზრდასრულ სტუმრებს, თქვენი და ჩვენი კომფორტისთვის. გთხოვთ, გაგებით მოეკიდოთ ჩვენს სურვილს და ეს განსაკუთრებული დღე ჩვენთან ერთად, მშვიდ და სასიამოვნო გარემოში გაატაროთ.',
+    ru: 'Мы приглашаем на свадьбу только совершеннолетних гостей — ради вашего и нашего комфорта. Просим с пониманием отнестись к этому пожеланию и провести этот особенный день вместе с нами в спокойной и приятной атмосфере.',
+    en: "We're inviting only adult guests to the wedding, for your comfort and ours. We kindly ask for your understanding, and hope you'll spend this special day with us in a calm and pleasant atmosphere.",
   },
   inviteBody: {
     ka: 'ბედნიერები ვიქნებით, თუ ამ განსაკუთრებულ დღეს ჩვენთან ერთად გაატარებთ',

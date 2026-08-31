@@ -110,6 +110,27 @@ html[lang="ka"] .intro__names {
   max-width: 21rem;
 }
 
+/* the oval frame's height is tied to its width (it's a fixed-aspect
+   photo), so a narrow phone gives less absolute vertical room for the
+   same padding percentages — Russian/English's longer inviteBody text
+   was overflowing past the bottom of the frame into its scalloped
+   border at 320-360px widths, illegible where it crossed the pattern.
+   Tighter vertical rhythm above the body text reclaims that room. */
+@media (max-width: 380px) {
+  .intro__names {
+    margin-bottom: 1.1rem;
+  }
+
+  .intro__date {
+    margin-bottom: 0.7rem;
+  }
+
+  .intro__body {
+    font-size: clamp(0.62rem, 2.6vw, 0.75rem);
+    line-height: 1.45;
+  }
+}
+
 /* the quote sits below the whole card, not squeezed inside it — the
    oval frame is already tightly balanced for eyebrow/title/names/date
    /body; a big block of new text belongs outside it, with room to
@@ -121,7 +142,7 @@ html[lang="ka"] .intro__names {
 }
 
 .intro__quote-frame > img {
-  width: 700px;
+  width: 100%;
   height: auto;
   display: block;
 }
@@ -137,14 +158,16 @@ html[lang="ka"] .intro__names {
   opacity: 0.95;
   font-family: var(--font-script);
   /* sized for the longest translation (Russian), not the shortest —
-     a size that only fits English overflows the plaque for the others */
-  font-size: 19px !important;
-  line-height: 1.3;
+     a fixed size that only fits English overflows the plaque for the
+     others; a fixed 19px + margin-top push was overflowing the bottom
+     of the plaque for Russian and Georgian specifically. */
+  font-size: clamp(0.85rem, 4vw, 1.05rem);
+  line-height: 1.28;
   font-weight: 400;
   letter-spacing: 0.01em;
   color: var(--olive);
   text-wrap: balance;
-  margin-top: 52px; /* lifts the quote off the gap baseline */
+  margin-top: 50px; /* centers nicely against the wider desktop plaque */
 }
 
 /* Great Vibes has no Georgian glyphs at all — it would silently fall
@@ -156,4 +179,23 @@ html[lang="ka"] .intro__quote {
   font-family: var(--font-geo-display);
   font-size: clamp(0.85rem, 3.6vw, 1.05rem);
   line-height: 1.55;
+}
+
+/* the same 50px is too much on a phone: the plaque itself is much
+   shorter there, so a fixed push that reads as centered on the wide
+   desktop version shoves the text down toward the bottom edge on
+   mobile instead. Smaller push + slightly smaller text re-centers it.
+   This has to come after the html[lang='ka'] rule above — equal
+   specificity, later source order wins, so placed earlier it would
+   get silently overridden back for Georgian specifically. */
+@media (max-width: 480px) {
+  .intro__quote {
+    font-size: 9px !important;
+    position: center;
+    margin-top: 20px;
+  }
+
+  html[lang="ka"] .intro__quote {
+    font-size: clamp(0.78rem, 3.3vw, 0.95rem);
+  }
 }

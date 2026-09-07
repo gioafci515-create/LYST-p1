@@ -32,7 +32,6 @@ export const translations = {
   detailsTitle: { ka: 'ქორწილის დეტალები', ru: 'Детали свадьбы', en: 'Wedding details' },
   detailsCta: { ka: 'დააჭირეთ აქ', ru: 'Нажмите здесь', en: 'Tap here' },
   openLocation: { ka: 'ლოკაციის გახსნა', ru: 'Открыть локацию', en: 'Open location' },
-  dressCodeCta: { ka: 'დრეს-კოდი', ru: 'Дресс-код', en: 'Dress code' },
   dressCodeTitle: { ka: 'დრეს-კოდი', ru: 'ДРЕСС-КОД', en: 'DRESS CODE' },
   inspiration: { ka: 'შთაგონება', ru: 'ВДОХНОВЕНИЕ', en: 'INSPIRATION' },
   rsvpTitle: { ka: 'სტუმრის ანკეტა', ru: 'Анкета гостя', en: 'Guest form' },

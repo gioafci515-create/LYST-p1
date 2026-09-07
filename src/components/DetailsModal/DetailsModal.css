@@ -127,20 +127,6 @@ html[lang="ka"] .details-modal__venue {
   font-weight: 400;
 }
 
-.details-modal__actions {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+.details-modal__map {
   width: min(280px, 100%);
-}
-
-.details-modal__actions .teaser-cta {
-  width: 100%;
-}
-
-/* subordinate to the map button */
-.details-modal__dresscode {
-  border-color: var(--olive-light);
-  color: var(--bone);
-  background: transparent;
 }

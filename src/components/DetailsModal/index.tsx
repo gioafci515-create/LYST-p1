@@ -5,10 +5,9 @@ import './DetailsModal.css';
 
 interface DetailsModalProps {
   onClose: () => void;
-  onOpenDressCode: () => void;
 }
 
-export function DetailsModal({ onClose, onOpenDressCode }: DetailsModalProps) {
+export function DetailsModal({ onClose }: DetailsModalProps) {
   const { lang, t } = useLanguage();
 
   return (
@@ -29,23 +28,14 @@ export function DetailsModal({ onClose, onOpenDressCode }: DetailsModalProps) {
 
         <p className="details-modal__venue">{wedding.venue[lang]}</p>
 
-        <div className="details-modal__actions">
-          <a
-            className="details-modal__map teaser-cta"
-            href={wedding.mapUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {t('openLocation')}
-          </a>
-          <button
-            type="button"
-            className="teaser-cta details-modal__dresscode"
-            onClick={onOpenDressCode}
-          >
-            {t('dressCodeCta')}
-          </button>
-        </div>
+        <a
+          className="details-modal__map teaser-cta"
+          href={wedding.mapUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {t('openLocation')}
+        </a>
       </div>
     </Modal>
   );

@@ -6,7 +6,7 @@ import { PhotoSection } from '../PhotoSection';
 import { LetterSection } from '../LetterSection';
 import { DetailsTeaser } from '../DetailsTeaser';
 import { DetailsModal } from '../DetailsModal';
-import { DressCodeModal } from '../DressCodeModal';
+import { DressCodeSection } from '../DressCodeSection';
 import { BackToTop } from '../BackToTop';
 import { EventNotice } from '../EventNotice';
 import { RsvpTeaser } from '../RsvpTeaser';
@@ -25,7 +25,6 @@ type OpenModal = 'details' | 'rsvp' | 'photos' | null;
 export function Invitation() {
   const { lang } = useLanguage();
   const [openModal, setOpenModal] = useState<OpenModal>(null);
-  const [dressCodeOpen, setDressCodeOpen] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(() => readStoredRsvp() !== null);
 
   return (
@@ -34,6 +33,7 @@ export function Invitation() {
       <PhotoSection photo={wedding.photos.photo1} altKey="photoAlt1" />
       <LetterSection />
       <DetailsTeaser onOpen={() => setOpenModal('details')} />
+      <DressCodeSection />
       <PhotoSection photo={wedding.photos.photo2} altKey="photoAlt2" />
       <EventNotice />
       <RsvpTeaser hasSubmitted={hasSubmitted} onOpen={() => setOpenModal('rsvp')} />
@@ -49,15 +49,9 @@ export function Invitation() {
       </CountdownErrorBoundary>
       <Footer />
 
-      <BackToTop modalOpen={openModal !== null || dressCodeOpen} />
+      <BackToTop modalOpen={openModal !== null} />
 
-      {openModal === 'details' && (
-        <DetailsModal
-          onClose={() => setOpenModal(null)}
-          onOpenDressCode={() => setDressCodeOpen(true)}
-        />
-      )}
-      {dressCodeOpen && <DressCodeModal onClose={() => setDressCodeOpen(false)} />}
+      {openModal === 'details' && <DetailsModal onClose={() => setOpenModal(null)} />}
       {openModal === 'rsvp' && (
         <RsvpModal
           initialSuccess={hasSubmitted}

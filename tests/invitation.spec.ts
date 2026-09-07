@@ -94,6 +94,7 @@ for (const vp of viewports) {
         '.photo-section >> nth=0',
         '.letter',
         '.details-teaser',
+        '.dress-section',
         '.photo-section >> nth=1',
         '.event-notice',
         '.rsvp-teaser',
@@ -139,41 +140,30 @@ for (const vp of viewports) {
       await shot(page, vp.name, lang, '05-details-modal');
       await expect(page.locator('.back-to-top')).toHaveCount(0);
 
-      // dress code modal on top of details
-      await page.click('.details-modal__dresscode');
-      await page.waitForSelector('.dress-modal');
-      await page.waitForTimeout(450);
-      await shot(page, vp.name, lang, '06-dresscode-modal');
-      await assertNoHorizontalOverflow(page, 'dresscode modal');
-
-      // hearts fit one row
-      const heartsHeight = await page
-        .locator('.dress-modal__hearts')
-        .evaluate((el) => el.getBoundingClientRect().height);
-      expect(heartsHeight, 'hearts wrapped').toBeLessThan(60);
-
-      // tap a heart, name appears in the reserved line
-      await page.click('.dress-modal__heart >> nth=3');
-      await expect(page.locator('.dress-modal__swatch-name')).not.toHaveText(/^\s*$/);
-      await shot(page, vp.name, lang, '07-dresscode-heart');
-
-      // Escape closes only the dress code modal; details stays; focus returns
-      await page.keyboard.press('Escape');
-      await page.waitForTimeout(250);
-      await expect(page.locator('.dress-modal')).toHaveCount(0);
-      await expect(page.locator('.details-modal')).toBeVisible();
-      const focusOnDressBtn = await page.evaluate(
-        () => document.activeElement?.classList.contains('details-modal__dresscode') ?? false,
-      );
-      expect(focusOnDressBtn, 'focus returned to dress code trigger').toBe(true);
-
-      // Escape again closes details; focus back to teaser
+      // Escape closes details; focus back to teaser
       await page.keyboard.press('Escape');
       await page.waitForTimeout(250);
       const focusReturned = await page.evaluate(
         () => document.activeElement?.classList.contains('paper-cta') ?? false,
       );
       expect(focusReturned, 'focus returned to details trigger').toBe(true);
+
+      // dress code — standalone section now, not a nested modal
+      await page.locator('.dress-section').scrollIntoViewIfNeeded();
+      await page.waitForTimeout(450);
+      await shot(page, vp.name, lang, '06-dresscode-section');
+      await assertNoHorizontalOverflow(page, 'dress code section');
+
+      // hearts fit one row
+      const heartsHeight = await page
+        .locator('.dress-section__hearts')
+        .evaluate((el) => el.getBoundingClientRect().height);
+      expect(heartsHeight, 'hearts wrapped').toBeLessThan(60);
+
+      // tap a heart, name appears in the reserved line
+      await page.click('.dress-section__heart >> nth=3');
+      await expect(page.locator('.dress-section__swatch-name')).not.toHaveText(/^\s*$/);
+      await shot(page, vp.name, lang, '07-dresscode-heart');
 
       // RSVP: invalid → error, valid → success (mock transport in test build)
       const rsvpBtn = page.locator('.rsvp-teaser .paper-cta');

@@ -179,6 +179,7 @@ html[lang='ka'] .dress-section__avoid-label {
 }
 
 .dress-section__heart {
+  position: relative;
   width: 44px;
   min-width: 0;
   height: 44px;
@@ -192,6 +193,30 @@ html[lang='ka'] .dress-section__avoid-label {
 .dress-section__heart svg {
   width: clamp(30px, 9vw, 46px);
   height: auto;
+}
+
+/* every shade here is forbidden — same red ring-and-slash treatment as
+   the small avoid swatches above, scaled to this row's bigger hearts */
+.dress-section__heart::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border: 2px solid #c0394a;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.dress-section__heart::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -6%;
+  width: 112%;
+  height: 3px;
+  background: #c0394a;
+  transform: translateY(-50%) rotate(-38deg);
+  border-radius: 2px;
+  pointer-events: none;
 }
 
 .dress-section__heart.is-selected {

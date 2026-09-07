@@ -54,16 +54,18 @@ export const wedding = {
     ru: 'Пожалуйста, учтите — белый и любые его оттенки недопустимы',
     en: 'Please note — white, and any shade of it, is not allowed',
   },
+  /* five shades of white, all forbidden — the main heart row, every one
+     crossed out in red so the rule reads at a glance rather than being
+     inferred from a sentence. */
   dressCodePalette: [
-    { hex: '#B3B198', name: { ka: 'მოსაზი', ru: 'Шалфей', en: 'Sage' } },
-    { hex: '#6F6B46', name: { ka: 'ზეთისხილისფერი', ru: 'Оливковый', en: 'Olive' } },
-    { hex: '#957964', name: { ka: 'ტაუპი', ru: 'Таупе', en: 'Taupe' } },
-    { hex: '#754F38', name: { ka: 'შოკოლადისფერი', ru: 'Шоколад', en: 'Chocolate' } },
-    { hex: '#251B12', name: { ka: 'მუქი ყავისფერი', ru: 'Тёмный', en: 'Espresso' } },
+    { hex: '#FFFFFF', name: { ka: 'თეთრი', ru: 'Белый', en: 'White' } },
+    { hex: '#FFFFF0', name: { ka: 'სპილოს ძვლისფერი', ru: 'Слоновая кость', en: 'Ivory' } },
+    { hex: '#F5F3EE', name: { ka: 'მარგალიტისფერი', ru: 'Жемчужный', en: 'Pearl' } },
+    { hex: '#FFF5DC', name: { ka: 'კრემისფერი', ru: 'Кремовый', en: 'Cream' } },
+    { hex: '#F0E2C4', name: { ka: 'შამპანურისფერი', ru: 'Шампань', en: 'Champagne' } },
   ],
-  /* the two lightest hearts from the same poster row — deliberately left
-     out of the palette above since they read as shades of white; shown
-     separately, crossed out, so the rule isn't just a sentence. */
+  /* the same idea, smaller — two of the same family shown right next to
+     the warning text itself, before the full row below. */
   dressCodeAvoidPalette: [
     { hex: '#E3C8AE', name: { ka: 'შამპანურისფერი', ru: 'Шампань', en: 'Champagne' } },
     { hex: '#E0BC9B', name: { ka: 'ბეჟი', ru: 'Бежевый', en: 'Beige' } },

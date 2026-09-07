@@ -110,7 +110,7 @@ export function DressCodeSection() {
                 type="button"
                 role="listitem"
                 className={`dress-section__heart${selected?.hex === swatch.hex ? ' is-selected' : ''}`}
-                aria-label={swatch.name[lang]}
+                aria-label={`${t('notAllowed')}: ${swatch.name[lang]}`}
                 aria-pressed={selected?.hex === swatch.hex}
                 onClick={() => setSelected(selected?.hex === swatch.hex ? null : swatch)}
               >
@@ -118,6 +118,8 @@ export function DressCodeSection() {
                   <path
                     d="M16 28 C8 21 2 15.5 2 9.5 C2 5 5.4 2 9.4 2 C12.2 2 14.8 3.6 16 6 C17.2 3.6 19.8 2 22.6 2 C26.6 2 30 5 30 9.5 C30 15.5 24 21 16 28Z"
                     fill={swatch.hex}
+                    stroke="rgba(0, 0, 0, 0.22)"
+                    strokeWidth={1}
                   />
                 </svg>
               </button>

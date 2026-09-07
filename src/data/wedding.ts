@@ -61,6 +61,13 @@ export const wedding = {
     { hex: '#754F38', name: { ka: 'შოკოლადისფერი', ru: 'Шоколад', en: 'Chocolate' } },
     { hex: '#251B12', name: { ka: 'მუქი ყავისფერი', ru: 'Тёмный', en: 'Espresso' } },
   ],
+  /* the two lightest hearts from the same poster row — deliberately left
+     out of the palette above since they read as shades of white; shown
+     separately, crossed out, so the rule isn't just a sentence. */
+  dressCodeAvoidPalette: [
+    { hex: '#E3C8AE', name: { ka: 'შამპანურისფერი', ru: 'Шампань', en: 'Champagne' } },
+    { hex: '#E0BC9B', name: { ka: 'ბეჟი', ru: 'Бежевый', en: 'Beige' } },
+  ],
 } as const;
 
 export type WeddingPhoto = (typeof wedding.photos)[keyof typeof wedding.photos];

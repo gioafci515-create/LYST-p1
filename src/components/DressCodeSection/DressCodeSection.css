@@ -90,8 +90,9 @@ html[lang='ka'] .dress-section__title {
 }
 
 .dress-section__no-white-icon {
-  width: 40px;
-  height: 40px;
+  width: clamp(64px, 20vw, 92px);
+  height: auto;
+  margin-bottom: 0.25rem;
 }
 
 /* the dress itself reads as an actual white dress — filled, not just
@@ -113,6 +114,61 @@ html[lang='ka'] .dress-section__title {
 .dress-section__no-white-slash {
   stroke: #c0394a;
   stroke-width: 3;
+}
+
+/* the two shades the text warns about, shown rather than just named —
+   each a real swatch from the same reference poster, crossed out like
+   the dress above, with a visible caption (not just an aria-label) so
+   sighted guests get the same "not allowed" signal as screen readers */
+.dress-section__avoid {
+  display: flex;
+  gap: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.dress-section__avoid-swatch {
+  position: relative;
+  display: inline-flex;
+  width: 32px;
+  height: 30px;
+}
+
+.dress-section__avoid-swatch svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dress-section__avoid-swatch::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border: 1.5px solid #c0394a;
+  border-radius: 50%;
+}
+
+.dress-section__avoid-swatch::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -12%;
+  width: 124%;
+  height: 2.5px;
+  background: #c0394a;
+  transform: translateY(-50%) rotate(-38deg);
+  border-radius: 2px;
+}
+
+.dress-section__avoid-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #d9707f;
+  margin: 0.55rem 0 0;
+}
+
+html[lang='ka'] .dress-section__avoid-label {
+  text-transform: none;
 }
 
 /* hearts: one row at every width */

@@ -3,26 +3,34 @@ import { useLanguage } from '../../context/LanguageContext';
 import { wedding, type DressSwatch } from '../../data/wedding';
 import './DressCodeSection.css';
 
-/** Simple dress silhouette with a red diagonal prohibition line — the
- *  no-white rule as a sign, not just a sentence. */
+/** A real gown silhouette (spaghetti straps, fitted bodice, flared
+ *  skirt) rather than an abstract trapezoid, filled white and crossed
+ *  by a red prohibition line — the no-white rule as a sign, not just a
+ *  sentence. */
 function NoWhiteDressIcon() {
   return (
     <svg
       className="dress-section__no-white-icon"
-      viewBox="0 0 64 64"
+      viewBox="0 0 72 84"
       aria-hidden="true"
     >
       <path
         className="dress-section__no-white-dress"
-        d="M27 6 L24 16 L14 54 Q13 58 17 58 L47 58 Q51 58 50 54 L40 16 L37 6 Q32 3 27 6 Z"
+        d="M30 16
+           C26 22 26 30 28 36
+           C22 48 18 60 16 72
+           Q36 78 56 72
+           C54 60 50 48 44 36
+           C46 30 46 22 42 16
+           Q36 22 30 16 Z"
       />
       <path
         className="dress-section__no-white-neckline"
-        d="M27 6 Q32 9 37 6"
+        d="M30 16 L26 6 M42 16 L46 6"
         fill="none"
       />
-      <circle className="dress-section__no-white-ring" cx="32" cy="34" r="27" fill="none" />
-      <line className="dress-section__no-white-slash" x1="12" y1="14" x2="52" y2="54" />
+      <circle className="dress-section__no-white-ring" cx="36" cy="44" r="36" fill="none" />
+      <line className="dress-section__no-white-slash" x1="4" y1="10" x2="68" y2="78" />
     </svg>
   );
 }
@@ -68,6 +76,26 @@ export function DressCodeSection() {
           <div className="dress-section__no-white" data-reveal="rise" data-reveal-delay="240">
             <NoWhiteDressIcon />
             <p>{wedding.dressCodeNoWhite[lang]}</p>
+            <div className="dress-section__avoid" role="list">
+              {wedding.dressCodeAvoidPalette.map((swatch) => (
+                <span
+                  key={swatch.hex}
+                  role="listitem"
+                  className="dress-section__avoid-swatch"
+                  aria-label={`${t('notAllowed')}: ${swatch.name[lang]}`}
+                >
+                  <svg viewBox="0 0 32 30" aria-hidden="true">
+                    <path
+                      d="M16 28 C8 21 2 15.5 2 9.5 C2 5 5.4 2 9.4 2 C12.2 2 14.8 3.6 16 6 C17.2 3.6 19.8 2 22.6 2 C26.6 2 30 5 30 9.5 C30 15.5 24 21 16 28Z"
+                      fill={swatch.hex}
+                    />
+                  </svg>
+                </span>
+              ))}
+            </div>
+            <p className="dress-section__avoid-label" aria-hidden="true">
+              {t('notAllowed')}
+            </p>
           </div>
 
           <div

@@ -33,6 +33,7 @@ export const translations = {
   detailsCta: { ka: 'დააჭირეთ აქ', ru: 'Нажмите здесь', en: 'Tap here' },
   openLocation: { ka: 'ლოკაციის გახსნა', ru: 'Открыть локацию', en: 'Open location' },
   dressCodeTitle: { ka: 'დრეს-კოდი', ru: 'ДРЕСС-КОД', en: 'DRESS CODE' },
+  notAllowed: { ka: 'დაუშვებელია', ru: 'Недопустимо', en: 'Not allowed' },
   rsvpTitle: { ka: 'სტუმრის ანკეტა', ru: 'Анкета гостя', en: 'Guest form' },
   rsvpPrompt: {
     ka: 'გთხოვთ, დაადასტუროთ თქვენი დასწრება',

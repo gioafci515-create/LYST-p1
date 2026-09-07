@@ -19,6 +19,7 @@ interface PhotoWithUrl extends PhotoRow {
 const strings = {
   title: { ka: 'სტუმრების ფოტოები', ru: 'Фото от гостей', en: 'Guest photos' },
   empty: { ka: 'ჯერ არცერთი ფოტო არ არის', ru: 'Пока нет фото', en: 'No photos yet' },
+  open: { ka: 'ფოტოს გახსნა', ru: 'Открыть фото', en: 'Open photo' },
   unknownGuest: { ka: 'უცნობი სტუმარი', ru: 'Неизвестный гость', en: 'Unknown guest' },
   delete: { ka: 'წაშლა', ru: 'Удалить', en: 'Delete' },
   close: { ka: 'დახურვა', ru: 'Закрыть', en: 'Close' },
@@ -148,6 +149,7 @@ export function PhotoGallery({ supabase, lang }: { supabase: SupabaseClient; lan
                     setDownloadState('idle');
                     setActive(photo);
                   }}
+                  aria-label={s('open')}
                 >
                   <img src={photo.url} alt="" loading="lazy" />
                 </button>

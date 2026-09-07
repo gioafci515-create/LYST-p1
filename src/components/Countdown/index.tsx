@@ -35,9 +35,11 @@ export function Countdown() {
         <span className="visually-hidden">{t('countdownSr')}</span>
 
         {isPast ? (
-          <p className="section-heading countdown__today" data-reveal="rise" data-reveal-delay="380">
-            {t('today')}
-          </p>
+          // no data-reveal: this branch can mount well after the reveal
+          // engine's one-time initial scan (a guest's tab left open
+          // across the wedding start moment) — a scroll-reveal on it
+          // would never be observed and stay invisible forever.
+          <p className="section-heading countdown__today">{t('today')}</p>
         ) : (
           <div
             className="countdown__grid"

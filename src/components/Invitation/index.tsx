@@ -21,7 +21,7 @@ import './Invitation.css';
 
 type OpenModal = 'details' | 'rsvp' | 'photos' | null;
 
-/** STATE 3+: the scrollable invitation and its two overlay modals. */
+/** STATE 3+: the scrollable invitation and its overlay modals. */
 export function Invitation() {
   const { lang } = useLanguage();
   const [openModal, setOpenModal] = useState<OpenModal>(null);

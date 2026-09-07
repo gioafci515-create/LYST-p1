@@ -33,7 +33,6 @@ export const translations = {
   detailsCta: { ka: 'დააჭირეთ აქ', ru: 'Нажмите здесь', en: 'Tap here' },
   openLocation: { ka: 'ლოკაციის გახსნა', ru: 'Открыть локацию', en: 'Open location' },
   dressCodeTitle: { ka: 'დრეს-კოდი', ru: 'ДРЕСС-КОД', en: 'DRESS CODE' },
-  inspiration: { ka: 'შთაგონება', ru: 'ВДОХНОВЕНИЕ', en: 'INSPIRATION' },
   rsvpTitle: { ka: 'სტუმრის ანკეტა', ru: 'Анкета гостя', en: 'Guest form' },
   rsvpPrompt: {
     ka: 'გთხოვთ, დაადასტუროთ თქვენი დასწრება',
@@ -42,7 +41,6 @@ export const translations = {
   },
   rsvpCta: { ka: 'შეავსეთ ანკეტა', ru: 'Заполнить анкету', en: 'Fill in the form' },
   rsvpFormTitle: { ka: 'შემოგვიერთდებით?', ru: 'Присоединитесь к нам?', en: 'Will you join us?' },
-  nameLabel: { ka: 'სახელი და გვარი', ru: 'Имя и фамилия', en: 'Name and surname' },
   firstName: { ka: 'სახელი', ru: 'Имя', en: 'First name' },
   lastName: { ka: 'გვარი', ru: 'Фамилия', en: 'Last name' },
   attending: { ka: 'სიხარულით დავესწრები', ru: 'С радостью буду', en: "I'll gladly attend" },
@@ -76,11 +74,6 @@ export const translations = {
   seconds: { ka: 'წამი', ru: 'секунд', en: 'seconds' },
   today: { ka: 'დღეს ჩვენი დღეა', ru: 'Сегодня наш день', en: 'Today is our day' },
   withLove: { ka: 'სიყვარულით', ru: 'С любовью', en: 'With love' },
-  createdBy: {
-    ka: 'საიტი შექმნილია INVITÉ-ს მიერ',
-    ru: 'Сайт создан INVITÉ',
-    en: 'Site created by INVITÉ',
-  },
   backToTop: { ka: 'თავში დაბრუნება', ru: 'Наверх', en: 'Back to top' },
   errName: {
     ka: 'გთხოვთ შეიყვანოთ სახელი',
@@ -113,17 +106,6 @@ export const translations = {
   },
   photoAlt1: { ka: 'დათა და ქეთი', ru: 'Дата и Кети', en: 'Data and Keti' },
   photoAlt2: { ka: 'წყვილის ფოტო', ru: 'Фото пары', en: 'Photo of the couple' },
-  altDressWomen: {
-    ka: 'ქალის სამოსის შთაგონება ქორწილის ფერებში',
-    ru: 'Женские образы в цветах свадьбы',
-    en: "Women's outfit inspiration in the wedding palette",
-  },
-  altDressMen: {
-    ka: 'მამაკაცის სამოსის შთაგონება ქორწილის ფერებში',
-    ru: 'Мужские образы в цветах свадьбы',
-    en: "Men's outfit inspiration in the wedding palette",
-  },
-  zoomHint: { ka: 'გაადიდეთ', ru: 'Увеличить', en: 'Zoom' },
   photoTitle: { ka: 'გაგვიზიარეთ კადრები', ru: 'Поделитесь кадрами', en: 'Share your photos' },
   photoPrompt: {
     ka: 'გადაუღეთ სურათები დღესასწაულს და ატვირთეთ აქ — ჩვენთვის ისინი ძვირფასი იქნება',

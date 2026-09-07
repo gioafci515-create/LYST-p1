@@ -134,7 +134,7 @@ html[lang='ka'] .line {
   transform: scale(0.96);
 }
 
-.dress-modal__heart:active {
+.dress-section__heart:active {
   transform: scale(1.22);
 }
 
@@ -160,7 +160,7 @@ html[lang='ka'] .line {
 @media (prefers-reduced-motion: reduce) {
   .paper-cta:active,
   .teaser-cta:active,
-  .dress-modal__heart:active,
+  .dress-section__heart:active,
   .music-toggle:active,
   .back-to-top:active,
   .rsvp-form__choice:active {

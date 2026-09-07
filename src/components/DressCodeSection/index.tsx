@@ -14,8 +14,11 @@ function NoWhiteDressIcon() {
     >
       <path
         className="dress-section__no-white-dress"
-        d="M27 6 L24 16 L14 54 Q13 58 17 58 L47 58 Q51 58 50 54 L40 16 L37 6 Q32 3 27 6 Z
-           M27 6 Q32 9 37 6"
+        d="M27 6 L24 16 L14 54 Q13 58 17 58 L47 58 Q51 58 50 54 L40 16 L37 6 Q32 3 27 6 Z"
+      />
+      <path
+        className="dress-section__no-white-neckline"
+        d="M27 6 Q32 9 37 6"
         fill="none"
       />
       <circle className="dress-section__no-white-ring" cx="32" cy="34" r="27" fill="none" />

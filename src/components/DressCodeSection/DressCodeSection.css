@@ -33,7 +33,7 @@
   font-weight: 400;
   font-size: clamp(1.5rem, 6vw, 2.1rem);
   letter-spacing: 0.18em;
-  color: var(--cherry-rose);
+  color: var(--text);
   white-space: nowrap;
 }
 
@@ -65,12 +65,13 @@ html[lang='ka'] .dress-section__title {
   max-width: 42ch;
   font-size: clamp(0.85rem, 3.2vw, 0.95rem);
   line-height: 1.75;
-  color: var(--cherry-rose);
+  color: var(--text);
   margin-bottom: 1rem;
 }
 
 /* the rule that matters: no white, no shades of it — a sign, not just
-   a sentence, so it reads at a glance */
+   a sentence, so it gets its own red accent to stand out from the rest
+   of the (now neutral) card text */
 .dress-section__no-white {
   display: flex;
   flex-direction: column;
@@ -80,8 +81,9 @@ html[lang='ka'] .dress-section__title {
   font-size: clamp(0.78rem, 3vw, 0.88rem);
   line-height: 1.6;
   font-weight: 500;
-  color: var(--cherry-rose);
-  border: 1px solid var(--cherry-line);
+  color: var(--text);
+  background: rgba(192, 57, 74, 0.08);
+  border: 1px solid rgba(192, 57, 74, 0.45);
   border-radius: 2px;
   padding: 0.9rem 1.1rem 0.7rem;
   margin-bottom: 1.75rem;
@@ -92,10 +94,18 @@ html[lang='ka'] .dress-section__title {
   height: 40px;
 }
 
+/* the dress itself reads as an actual white dress — filled, not just
+   outlined — so the red slash across it is unmistakable */
 .dress-section__no-white-dress {
-  stroke: var(--cherry-rose);
-  stroke-width: 2;
+  fill: var(--text);
+  stroke: var(--cherry-ink);
+  stroke-width: 1;
   stroke-linejoin: round;
+}
+
+.dress-section__no-white-neckline {
+  stroke: var(--cherry-ink);
+  stroke-width: 1.5;
   stroke-linecap: round;
 }
 
@@ -154,7 +164,7 @@ html[lang='ka'] .dress-section__title {
   min-height: 1.5rem;
   font-size: 0.75rem;
   letter-spacing: 0.12em;
-  color: var(--cherry-rose);
+  color: var(--text-muted);
   margin: 0.6rem 0 0;
 }
 
